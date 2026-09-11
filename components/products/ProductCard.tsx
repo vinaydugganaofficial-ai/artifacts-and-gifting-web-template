@@ -94,7 +94,7 @@ export function ProductCard({
           priority={priority}
           sizes={sizes}
           className={cn(
-            "object-contain p-4 sm:p-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]",
+            "object-contain p-5 sm:p-7 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]",
             hoverImage && "group-hover:opacity-0 transition-opacity duration-500",
           )}
         />
@@ -106,17 +106,17 @@ export function ProductCard({
             aria-hidden
             fill
             sizes={sizes}
-            className="object-contain p-4 sm:p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="object-contain p-5 sm:p-7 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           />
         ) : null}
 
         {!product.inStock ? (
-          <Badge tone="onIvory" className="absolute left-3 top-3 text-[9px] uppercase tracking-wider bg-forest/80 text-sand">
+          <Badge tone="onIvory" className="absolute left-2.5 top-2.5 text-[9px] uppercase tracking-wider bg-forest/80 text-sand">
             Reserved
           </Badge>
         ) : null}
 
-        {/* Wishlist Button */}
+        {/* Wishlist Button — moved up and right clear of the image */}
         <button
           type="button"
           aria-label={
@@ -126,7 +126,7 @@ export function ProductCard({
           }
           aria-pressed={wished}
           onClick={onToggleWishlist}
-          className="absolute right-3 top-3 z-10 grid size-8 place-items-center rounded-full bg-off-white/80 text-deep-brown/70 backdrop-blur-sm transition-colors hover:text-terracotta hover:bg-off-white"
+          className="absolute right-2 top-2 z-10 grid size-8 place-items-center rounded-full bg-off-white/90 text-deep-brown/70 backdrop-blur-sm transition-colors hover:text-terracotta hover:bg-off-white shadow-xs"
         >
           <motion.span
             animate={wished && !reduce ? { scale: [1, 1.18, 1] } : { scale: 1 }}

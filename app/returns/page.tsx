@@ -5,9 +5,9 @@ import { getPolicy } from "@/lib/services/content.service";
 import { PolicyPage } from "@/components/shared/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Returns",
+  title: "Returns & Exchanges",
   description:
-    "Aaranya's returns window, what counts as a fault in a hand-cast piece, and how transit damage is handled.",
+    "Viraasat's returns window, what counts as natural artisanal character in a hand-cast piece, and our transit damage replacement guarantee.",
   alternates: { canonical: "/returns" },
 };
 

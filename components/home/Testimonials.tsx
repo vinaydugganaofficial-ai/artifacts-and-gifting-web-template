@@ -28,7 +28,7 @@ export function Testimonials({ eyebrow, title, testimonials }: TestimonialsProps
   }
 
   return (
-    <section className="bg-ivory px-5 py-24 md:px-8 md:py-32 lg:px-12">
+    <section className="bg-sand/30 px-5 py-24 md:px-8 md:py-32 lg:px-12">
       <div className="mx-auto max-w-[920px] text-center">
         <SectionHeading align="center" eyebrow={eyebrow} title={title} />
 
@@ -41,15 +41,15 @@ export function Testimonials({ eyebrow, title, testimonials }: TestimonialsProps
               exit={reduce ? undefined : { opacity: 0, y: -10 }}
               transition={{ duration: 0.5, ease: easeLuxury }}
             >
-              <p className="font-display text-2xl leading-snug text-charcoal sm:text-4xl">
+              <p className="font-display text-2xl leading-snug text-deep-brown sm:text-4xl">
                 &ldquo;{current.quote}&rdquo;
               </p>
               <footer className="mt-10">
                 <cite className="not-italic">
-                  <span className="block text-[12px] uppercase tracking-[0.28em] text-charcoal">
+                  <span className="block text-[12px] uppercase tracking-[0.28em] text-forest font-medium">
                     {current.name}
                   </span>
-                  <span className="mt-2 block text-[11px] uppercase tracking-[0.22em] text-gold">
+                  <span className="mt-2 block text-[11px] uppercase tracking-[0.22em] text-terracotta font-medium">
                     {current.location}
                   </span>
                 </cite>
@@ -64,14 +64,14 @@ export function Testimonials({ eyebrow, title, testimonials }: TestimonialsProps
               type="button"
               aria-label="Previous testimonial"
               onClick={() => go(-1)}
-              className="grid size-11 place-items-center border border-charcoal/15 text-charcoal transition-colors hover:border-gold hover:text-gold"
+              className="grid size-11 place-items-center border border-deep-brown/20 text-deep-brown transition-colors hover:border-terracotta hover:text-terracotta"
             >
               <ChevronLeft className="size-4" aria-hidden />
             </button>
 
             <p
               aria-live="polite"
-              className="text-[11px] uppercase tracking-[0.28em] text-charcoal/40"
+              className="text-[11px] uppercase tracking-[0.28em] text-deep-brown/50"
             >
               {padCount(index + 1)} — {padCount(testimonials.length)}
             </p>
@@ -80,7 +80,7 @@ export function Testimonials({ eyebrow, title, testimonials }: TestimonialsProps
               type="button"
               aria-label="Next testimonial"
               onClick={() => go(1)}
-              className="grid size-11 place-items-center border border-charcoal/15 text-charcoal transition-colors hover:border-gold hover:text-gold"
+              className="grid size-11 place-items-center border border-deep-brown/20 text-deep-brown transition-colors hover:border-terracotta hover:text-terracotta"
             >
               <ChevronRight className="size-4" aria-hidden />
             </button>

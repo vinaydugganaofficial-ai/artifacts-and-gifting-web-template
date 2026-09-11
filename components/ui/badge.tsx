@@ -7,10 +7,14 @@ const badgeVariants = cva(
   {
     variants: {
       tone: {
-        neutral: "bg-charcoal/8 text-charcoal/70",
-        gold: "bg-gold/15 text-gold-muted",
-        soldOut: "bg-charcoal text-ivory",
-        onIvory: "bg-ivory/90 text-charcoal",
+        neutral: "bg-deep-brown/8 text-deep-brown/80",
+        gold: "bg-saffron/15 text-saffron",
+        saffron: "bg-saffron/15 text-saffron",
+        terracotta: "bg-terracotta/15 text-terracotta font-medium",
+        forest: "bg-forest/15 text-forest font-medium",
+        soldOut: "bg-deep-brown text-off-white",
+        onIvory: "bg-off-white/95 text-deep-brown border border-deep-brown/10",
+        onOffWhite: "bg-off-white/95 text-deep-brown border border-deep-brown/10",
       },
     },
     defaultVariants: {

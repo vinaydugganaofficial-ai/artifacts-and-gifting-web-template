@@ -19,7 +19,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
 
   return (
     <nav aria-label="Breadcrumb" className={cn("text-[11px]", className)}>
-      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 uppercase tracking-[0.2em] text-charcoal/45">
+      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 uppercase tracking-[0.2em] text-deep-brown/50">
         {items.map((item, index) => {
           const last = index === items.length - 1;
 
@@ -28,14 +28,14 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
               {item.href && !last ? (
                 <Link
                   href={item.href}
-                  className="transition-colors hover:text-gold-muted"
+                  className="transition-colors hover:text-terracotta"
                 >
                   {item.label}
                 </Link>
               ) : (
                 <span
                   aria-current={last ? "page" : undefined}
-                  className="text-charcoal/70"
+                  className="text-deep-brown font-medium"
                 >
                   {item.label}
                 </span>

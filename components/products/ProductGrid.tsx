@@ -12,8 +12,8 @@ type ProductGridProps = {
 };
 
 const columnClass = {
-  three: "grid grid-cols-2 gap-px bg-charcoal/10 lg:grid-cols-3",
-  four: "grid grid-cols-2 gap-px bg-charcoal/10 lg:grid-cols-4",
+  three: "grid grid-cols-2 gap-px bg-deep-brown/15 lg:grid-cols-3",
+  four: "grid grid-cols-2 gap-px bg-deep-brown/15 lg:grid-cols-4",
 } as const;
 
 const sizeHint = {

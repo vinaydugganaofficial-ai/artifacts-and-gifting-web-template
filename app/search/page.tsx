@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Search",
-  description: "Search the Aaranya collection of handcrafted Indian brass.",
+  description: "Search the Viraasat collection of handcrafted Indian brass and heritage artifacts.",
   // Search result pages should not be indexed or dilute the catalog's ranking.
   robots: { index: false, follow: true },
 };

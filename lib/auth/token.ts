@@ -9,7 +9,7 @@ import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
  * here is pure crypto over the token string itself.
  */
 
-export const SESSION_COOKIE = "aaranya_session";
+export const SESSION_COOKIE = "viraasat_session";
 export const SESSION_TTL_SECONDS = 60 * 60 * 24 * 14; // 14 days
 
 function secret(): string {

@@ -87,11 +87,11 @@ export function OtpInput({
             className={cn(
               "grid h-14 flex-1 place-items-center border text-xl tabular-nums transition-colors",
               invalid
-                ? "border-danger text-danger"
+                ? "border-danger text-danger bg-danger/5"
                 : digit
-                  ? "border-gold/60 text-charcoal"
-                  : "border-charcoal/20 text-charcoal/30",
-              !disabled && index === activeIndex && !invalid && "border-gold",
+                  ? "border-terracotta bg-off-white text-deep-brown shadow-sm"
+                  : "border-deep-brown/20 bg-off-white/80 text-deep-brown/40",
+              !disabled && index === activeIndex && !invalid && "border-terracotta ring-1 ring-terracotta/30",
               disabled && "opacity-50",
             )}
           >

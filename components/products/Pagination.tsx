@@ -43,7 +43,7 @@ export function Pagination({ page, pageCount, basePath, params }: PaginationProp
         <Link
           href={hrefFor(basePath, params, page - 1)}
           rel="prev"
-          className={cn(linkClass, "border-charcoal/15 text-charcoal hover:border-gold")}
+          className={cn(linkClass, "border-deep-brown/15 text-deep-brown hover:border-forest hover:text-forest")}
         >
           Previous
         </Link>
@@ -57,8 +57,8 @@ export function Pagination({ page, pageCount, basePath, params }: PaginationProp
           className={cn(
             linkClass,
             value === page
-              ? "border-gold bg-gold/10 text-charcoal"
-              : "border-charcoal/15 text-charcoal/60 hover:border-gold hover:text-charcoal",
+              ? "border-forest bg-forest text-off-white font-medium"
+              : "border-deep-brown/15 text-deep-brown/70 hover:border-forest hover:text-forest",
           )}
         >
           {value}
@@ -69,7 +69,7 @@ export function Pagination({ page, pageCount, basePath, params }: PaginationProp
         <Link
           href={hrefFor(basePath, params, page + 1)}
           rel="next"
-          className={cn(linkClass, "border-charcoal/15 text-charcoal hover:border-gold")}
+          className={cn(linkClass, "border-deep-brown/15 text-deep-brown hover:border-forest hover:text-forest")}
         >
           Next
         </Link>

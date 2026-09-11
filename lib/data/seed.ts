@@ -26,7 +26,7 @@ import type { Order, OrderLine, OrderStatus } from "@/types/order";
  * provider is needed to try the flow.
  */
 export const DEMO_PHONE = "+919820011223";
-export const DEMO_EMAIL = "demo@aaranya.example";
+export const DEMO_EMAIL = "demo@viraasat.example";
 
 function shouldSeed(): boolean {
   if (process.env.SEED_DEMO_DATA === "true") return true;
@@ -98,7 +98,7 @@ export async function seedDemoData(): Promise<void> {
   const existing = await userRepository.findByPhone(DEMO_PHONE);
   if (existing) return;
 
-  const userId = "usr_demo_aaranya";
+  const userId = "usr_demo_viraasat";
 
   const user: UserRecord = {
     id: userId,

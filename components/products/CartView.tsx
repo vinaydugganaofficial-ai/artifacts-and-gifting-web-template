@@ -46,9 +46,9 @@ export function CartView() {
     return (
       <EmptyState
         className="mt-12"
-        title="Your bag is empty."
-        description="Nothing has been set aside yet. The collection is a good place to begin."
-        action={{ href: "/shop", label: "Explore the collection" }}
+        title="Your cart is empty."
+        description="No artifacts have been set aside yet. Explore our curated collections to find the perfect gift."
+        action={{ href: "/shop", label: "Explore the Collection" }}
       />
     );
   }
@@ -61,7 +61,7 @@ export function CartView() {
     return (
       <EmptyState
         className="mt-12"
-        title="Your bag could not be loaded."
+        title="Your cart could not be loaded."
         description={error}
         action={{ href: "/cart", label: "Try again" }}
       />
@@ -72,25 +72,25 @@ export function CartView() {
     <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_340px]">
       <div>
         {unavailableCount > 0 ? (
-          <p className="mb-6 border border-danger/30 bg-danger/5 px-5 py-4 text-sm text-charcoal/75">
+          <p className="mb-6 border border-danger/30 bg-danger/5 px-5 py-4 text-sm text-deep-brown/80">
             {unavailableCount === 1
-              ? "One piece in your bag is no longer available and has been left out of the total."
-              : `${unavailableCount} pieces in your bag are no longer available and have been left out of the total.`}
+              ? "One piece in your cart is no longer available and has been left out of the total."
+              : `${unavailableCount} pieces in your cart are no longer available and have been left out of the total.`}
           </p>
         ) : null}
 
-        <ul className="divide-y divide-charcoal/10 border-y border-charcoal/10">
+        <ul className="divide-y divide-deep-brown/12 border-y border-deep-brown/12">
           {lines.map(({ product, quantity }) => (
             <li key={product.id} className="flex gap-5 py-6">
               <Link
                 href={`/products/${product.slug}`}
-                className="relative size-28 shrink-0 overflow-hidden bg-charcoal"
+                className="relative size-28 shrink-0 overflow-hidden border border-deep-brown/10 bg-[#EAE0CF] p-2"
               >
                 <Image
                   src={product.images[0].src}
                   alt={product.images[0].alt}
                   fill
-                  className="object-cover"
+                  className="object-contain p-1"
                   sizes="112px"
                 />
               </Link>
@@ -99,11 +99,11 @@ export function CartView() {
                 <div>
                   <Link
                     href={`/products/${product.slug}`}
-                    className="link-underline font-display text-xl"
+                    className="link-underline font-display text-xl text-forest hover:text-terracotta"
                   >
                     {product.name}
                   </Link>
-                  <p className="mt-1 text-sm text-charcoal/60">
+                  <p className="mt-1 text-sm text-deep-brown/70">
                     {formatPrice(product.price)}
                   </p>
                   {!product.inStock ? (
@@ -122,14 +122,14 @@ export function CartView() {
                   <button
                     type="button"
                     onClick={() => removeFromCart(product.id)}
-                    className="text-[10px] uppercase tracking-[0.2em] text-charcoal/50 transition-colors hover:text-danger"
+                    className="text-[10px] uppercase tracking-[0.2em] text-deep-brown/50 transition-colors hover:text-danger"
                   >
                     Remove
                   </button>
                 </div>
               </div>
 
-              <p className="hidden w-28 shrink-0 text-right text-sm tabular-nums text-charcoal sm:block">
+              <p className="hidden w-28 shrink-0 text-right text-sm tabular-nums text-deep-brown font-medium sm:block">
                 {formatPrice(product.price * quantity)}
               </p>
             </li>
@@ -137,21 +137,25 @@ export function CartView() {
         </ul>
       </div>
 
-      <aside className="h-fit border border-charcoal/10 p-6 lg:sticky lg:top-28">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-gold">Summary</p>
+      <aside className="h-fit border border-deep-brown/15 bg-sand/30 p-6 lg:sticky lg:top-28">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-terracotta font-medium">Order Summary</p>
 
         <dl className="mt-5 space-y-3 text-sm">
           <div className="flex justify-between">
-            <dt className="text-charcoal/60">Subtotal</dt>
-            <dd className="tabular-nums">{formatPrice(subtotal)}</dd>
+            <dt className="text-deep-brown/70">Subtotal</dt>
+            <dd className="tabular-nums font-medium text-deep-brown">{formatPrice(subtotal)}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-charcoal/60">Shipping</dt>
-            <dd className="text-charcoal/60">Quoted at confirmation</dd>
+            <dt className="text-deep-brown/70">Shipping</dt>
+            <dd className="text-deep-brown/70">Calculated at checkout</dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-deep-brown/70">Bespoke Gift Packaging</dt>
+            <dd className="text-forest font-medium">Complimentary</dd>
           </div>
         </dl>
 
-        <div className="mt-5 flex justify-between border-t border-charcoal/10 pt-5 text-base">
+        <div className="mt-5 flex justify-between border-t border-deep-brown/12 pt-5 text-base font-medium text-deep-brown">
           <span>Total</span>
           <span className="tabular-nums">{formatPrice(subtotal)}</span>
         </div>
@@ -161,12 +165,11 @@ export function CartView() {
           className={cn(buttonVariants({ variant: "primary" }), "mt-6 w-full")}
           aria-disabled={lines.length === 0}
         >
-          Proceed to checkout
+          Proceed to Checkout
         </Link>
 
-        <p className="mt-4 text-xs leading-relaxed text-charcoal/50">
-          Nothing is charged at this step. The atelier confirms every piece by hand before
-          an invoice is raised.
+        <p className="mt-4 text-xs leading-relaxed text-deep-brown/60">
+          Complimentary bespoke gift boxing, artisan certificate of origin, and insured pan-India delivery included.
         </p>
       </aside>
     </div>
@@ -176,19 +179,19 @@ export function CartView() {
 function CartSkeleton() {
   return (
     <div className="mt-12 grid animate-pulse gap-12 lg:grid-cols-[1fr_340px]">
-      <ul className="divide-y divide-charcoal/10 border-y border-charcoal/10">
+      <ul className="divide-y divide-deep-brown/10 border-y border-deep-brown/10">
         {[0, 1].map((index) => (
           <li key={index} className="flex gap-5 py-6">
-            <div className="size-28 shrink-0 bg-charcoal/10" />
+            <div className="size-28 shrink-0 bg-deep-brown/10" />
             <div className="flex-1 space-y-3">
-              <div className="h-6 w-1/2 bg-charcoal/10" />
-              <div className="h-4 w-24 bg-charcoal/10" />
-              <div className="h-11 w-32 bg-charcoal/10" />
+              <div className="h-6 w-1/2 bg-deep-brown/10" />
+              <div className="h-4 w-24 bg-deep-brown/10" />
+              <div className="h-11 w-32 bg-deep-brown/10" />
             </div>
           </li>
         ))}
       </ul>
-      <div className="h-64 border border-charcoal/10" />
+      <div className="h-64 border border-deep-brown/10" />
     </div>
   );
 }

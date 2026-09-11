@@ -16,9 +16,9 @@ export default function WishlistPage() {
     <section className={cn(tokens.gutter, tokens.pageTop, tokens.pageBottom)}>
       <div className={tokens.container}>
         <PageHeader
-          eyebrow="Saved"
-          title="Wishlist"
-          description="Pieces you have set aside — kept in this browser until you are ready."
+          eyebrow="Saved Artifacts"
+          title="Your Wishlist"
+          description="Pieces and gifting curations you have set aside — preserved here for your next celebration or home blessing."
         />
         <WishlistView />
       </div>

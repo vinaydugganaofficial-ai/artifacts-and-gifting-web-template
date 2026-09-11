@@ -108,7 +108,7 @@ export function SignInForm({
       {notice ? (
         <p
           role="status"
-          className="border border-gold/40 bg-gold/5 px-5 py-4 text-sm text-charcoal/75"
+          className="border border-terracotta/30 bg-terracotta/5 px-5 py-4 text-sm text-deep-brown/85"
         >
           {notice}
         </p>
@@ -129,10 +129,10 @@ export function SignInForm({
       />
 
       {needsSignUp ? (
-        <p className="text-sm text-charcoal/70">
+        <p className="text-sm text-deep-brown/70">
           <Link
             href={`/sign-up?next=${encodeURIComponent(returnTo)}`}
-            className="link-underline text-charcoal"
+            className="link-underline font-medium text-forest hover:text-terracotta"
           >
             Create an account
           </Link>{" "}
@@ -145,11 +145,11 @@ export function SignInForm({
       </Button>
 
       {demoPhone ? (
-        <div className="border border-charcoal/10 bg-ivory-deep/40 p-4 text-xs leading-relaxed text-charcoal/60">
-          <p className="font-medium uppercase tracking-[0.2em] text-charcoal/50">
+        <div className="border border-deep-brown/12 bg-sand/30 p-4 text-xs leading-relaxed text-deep-brown/75">
+          <p className="font-medium uppercase tracking-[0.2em] text-terracotta">
             Demo account
           </p>
-          <p className="mt-2">{demoPhone}</p>
+          <p className="mt-2 font-mono text-deep-brown">{demoPhone}</p>
           <button
             type="button"
             onClick={() => {
@@ -165,7 +165,7 @@ export function SignInForm({
                 setPhone(parsed.e164.slice(match.code.length));
               }
             }}
-            className="link-underline mt-2 text-charcoal/80"
+            className="link-underline mt-2 font-medium text-forest hover:text-terracotta"
           >
             Fill this in
           </button>

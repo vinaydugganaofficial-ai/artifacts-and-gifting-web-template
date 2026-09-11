@@ -77,28 +77,28 @@ export default async function JournalEntryPage({ params }: Props) {
           />
 
           <header className="mx-auto mt-10 max-w-3xl">
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] uppercase tracking-[0.24em] text-gold-muted">
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] uppercase tracking-[0.24em] text-terracotta font-medium">
               <span>{entry.category}</span>
-              <span aria-hidden className="text-charcoal/25">
+              <span aria-hidden className="text-deep-brown/30">
                 /
               </span>
               <time dateTime={toDateTimeAttribute(entry.publishedAt)}>
                 {formatDate(entry.publishedAt)}
               </time>
-              <span aria-hidden className="text-charcoal/25">
+              <span aria-hidden className="text-deep-brown/30">
                 /
               </span>
               <span>{entry.readingMinutes} min read</span>
             </p>
 
-            <h1 className="mt-5 font-display text-4xl font-medium leading-[1.1] tracking-[-0.02em] sm:text-5xl lg:text-[3.5rem]">
+            <h1 className="mt-5 font-display text-4xl font-medium leading-[1.1] tracking-[-0.02em] text-forest sm:text-5xl lg:text-[3.5rem]">
               {entry.title}
             </h1>
 
             <span className={cn(tokens.hairline, "mt-8")} aria-hidden />
           </header>
 
-          <figure className="relative mt-12 aspect-[16/9] overflow-hidden bg-charcoal">
+          <figure className="relative mt-12 aspect-[16/9] overflow-hidden border border-deep-brown/15 bg-sand">
             <Image
               src={entry.image}
               alt={entry.imageAlt}
@@ -112,19 +112,19 @@ export default async function JournalEntryPage({ params }: Props) {
           <Prose paragraphs={entry.body} className="mx-auto mt-14" lede />
 
           {more.length > 0 ? (
-            <aside className="mx-auto mt-24 max-w-3xl border-t border-charcoal/10 pt-10">
-              <h2 className="text-[11px] uppercase tracking-[0.28em] text-gold-muted">
+            <aside className="mx-auto mt-24 max-w-3xl border-t border-deep-brown/15 pt-10">
+              <h2 className="text-[11px] uppercase tracking-[0.28em] text-terracotta font-medium">
                 Read next
               </h2>
 
-              <ul className="mt-6 space-y-5">
+              <ul className="mt-6 space-y-6">
                 {more.map((other) => (
                   <li key={other.slug}>
                     <Link href={`/journal/${other.slug}`} className="group block">
-                      <p className="font-display text-2xl leading-snug">
-                        <span className="link-underline">{other.title}</span>
+                      <p className="font-display text-2xl leading-snug text-forest">
+                        <span className="link-underline group-hover:text-terracotta transition-colors">{other.title}</span>
                       </p>
-                      <p className="mt-1 text-sm text-charcoal/55">{other.excerpt}</p>
+                      <p className="mt-1 text-sm text-deep-brown/70 leading-relaxed">{other.excerpt}</p>
                     </Link>
                   </li>
                 ))}

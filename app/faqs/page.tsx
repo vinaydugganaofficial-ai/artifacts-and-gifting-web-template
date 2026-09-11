@@ -46,15 +46,15 @@ export default async function FaqsPage() {
       <section className={cn(tokens.gutter, tokens.pageTop, tokens.pageBottom)}>
         <div className={tokens.container}>
           <PageHeader
-            eyebrow="Care"
-            title="Questions, answered quietly."
-            description="Brass darkens. Lamps can be lit. Idols may be worshipped or simply lived with. The practical notes are gathered here."
+            eyebrow="Care & Gifting FAQs"
+            title="Craft, provenance, and gifting questions."
+            description="Brass darkens with natural patina. Devotional pieces may be worshipped or lived with. Gifting suites are packaged by hand in heritage paper. All answers gathered here."
           />
 
           <div className="mt-16 max-w-3xl space-y-14">
             {groups.map((group) => (
               <section key={group.category}>
-                <h2 className="text-[11px] uppercase tracking-[0.28em] text-gold-muted">
+                <h2 className="text-[11px] font-medium uppercase tracking-[0.28em] text-terracotta">
                   {group.category}
                 </h2>
 
@@ -65,10 +65,10 @@ export default async function FaqsPage() {
                         tone="light"
                         className="text-sm normal-case tracking-normal"
                       >
-                        <span className="font-display text-lg">{faq.question}</span>
+                        <span className="font-display text-lg text-forest">{faq.question}</span>
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="max-w-[62ch] text-[15px] leading-relaxed text-charcoal/70">
+                        <p className="max-w-[62ch] text-[15px] leading-relaxed text-deep-brown/80">
                           {faq.answer}
                         </p>
                       </AccordionContent>
@@ -79,16 +79,16 @@ export default async function FaqsPage() {
             ))}
           </div>
 
-          <div className="mt-16 max-w-xl border-t border-charcoal/10 pt-8">
-            <p className="text-sm leading-relaxed text-charcoal/60">
+          <div className="mt-16 max-w-xl border-t border-deep-brown/15 pt-8">
+            <p className="text-sm leading-relaxed text-deep-brown/70">
               Something not covered here?{" "}
-              <Link href="/contact" className="link-underline text-charcoal">
-                Write to the atelier
+              <Link href="/contact" className="link-underline font-medium text-forest hover:text-terracotta">
+                Write to the Viraasat concierge
               </Link>{" "}
               — or email{" "}
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="link-underline text-charcoal"
+                className="link-underline font-medium text-forest hover:text-terracotta"
               >
                 {siteConfig.contact.email}
               </a>

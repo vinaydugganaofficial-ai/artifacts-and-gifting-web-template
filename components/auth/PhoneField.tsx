@@ -48,7 +48,7 @@ export function PhoneField({
     <div className="flex flex-col gap-2 text-left">
       <label
         htmlFor={id}
-        className="text-[10px] uppercase tracking-[0.22em] text-charcoal/50"
+        className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/60"
       >
         {label}
       </label>
@@ -56,7 +56,7 @@ export function PhoneField({
       <div
         className={cn(
           "flex items-stretch border-b transition-colors",
-          error ? "border-b-danger" : "border-b-charcoal/25 focus-within:border-b-gold",
+          error ? "border-b-danger" : "border-b-deep-brown/25 focus-within:border-b-terracotta",
         )}
       >
         <label htmlFor={`${id}-country`} className="sr-only">
@@ -68,7 +68,7 @@ export function PhoneField({
           value={countryCode}
           disabled={disabled}
           onChange={(event) => onCountryCodeChange(event.target.value)}
-          className="h-12 shrink-0 cursor-pointer border-0 bg-transparent pr-3 text-sm tabular-nums text-charcoal/80 focus:outline-none"
+          className="h-12 shrink-0 cursor-pointer border-0 bg-transparent pr-3 text-sm tabular-nums text-deep-brown/85 focus:outline-none"
         >
           {countryCodes.map((entry) => (
             <option key={entry.code} value={entry.code}>
@@ -77,7 +77,7 @@ export function PhoneField({
           ))}
         </select>
 
-        <span aria-hidden className="my-3 w-px bg-charcoal/15" />
+        <span aria-hidden className="my-3 w-px bg-deep-brown/15" />
 
         <input
           id={id}
@@ -92,12 +92,12 @@ export function PhoneField({
           placeholder="98200 11223"
           // Digits and separators only; the server has the final say on shape.
           onChange={(event) => onChange(event.target.value.replace(/[^\d\s-]/g, ""))}
-          className="h-12 w-full min-w-0 border-0 bg-transparent px-3 text-sm tracking-wide text-charcoal placeholder:text-charcoal/35 focus:outline-none"
+          className="h-12 w-full min-w-0 border-0 bg-transparent px-3 text-sm tracking-wide text-deep-brown placeholder:text-deep-brown/35 focus:outline-none"
         />
       </div>
 
       {hint && !error ? (
-        <p id={`${id}-hint`} className="text-xs text-charcoal/50">
+        <p id={`${id}-hint`} className="text-xs text-deep-brown/50">
           {hint}
         </p>
       ) : null}

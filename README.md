@@ -1,8 +1,8 @@
-# Aaranya — Arts & Artifacts storefront
+# Viraasat — Contemporary Indian Heritage & Gifting House
 
-A production-shaped storefront template for handcrafted Indian brass, built on
-**Next.js 16** (App Router, Turbopack), **React 19**, **Tailwind v4**, **Zustand**
-and **Zod**.
+A production-shaped storefront for handcrafted Indian artifacts, brass sculptures,
+and bespoke gifting suites, built on **Next.js 16** (App Router, Turbopack),
+**React 19**, **Tailwind v4**, **Zustand** and **Zod**.
 
 ```bash
 npm install

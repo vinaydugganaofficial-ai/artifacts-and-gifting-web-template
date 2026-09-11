@@ -41,9 +41,9 @@ export function AccountNav({ links, userName, userPhone }: AccountNavProps) {
 
   return (
     <nav aria-label="Account" className="lg:sticky lg:top-28 lg:self-start">
-      <div className="border-b border-charcoal/10 pb-6">
-        <p className="font-display text-2xl leading-tight">{userName}</p>
-        <p className="mt-1 truncate text-sm text-charcoal/50">{formatPhone(userPhone)}</p>
+      <div className="border-b border-deep-brown/15 pb-6">
+        <p className="font-display text-2xl leading-tight text-forest">{userName}</p>
+        <p className="mt-1 truncate text-sm text-deep-brown/60">{formatPhone(userPhone)}</p>
       </div>
 
       <ul className="mt-6 flex gap-x-6 gap-y-1 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0">
@@ -62,7 +62,7 @@ export function AccountNav({ links, userName, userPhone }: AccountNavProps) {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "block whitespace-nowrap py-2 text-[11px] uppercase tracking-[0.22em] transition-colors",
-                  active ? "text-gold" : "text-charcoal/60 hover:text-charcoal",
+                  active ? "font-medium text-terracotta" : "text-deep-brown/70 hover:text-forest",
                 )}
               >
                 {link.label}
@@ -76,7 +76,7 @@ export function AccountNav({ links, userName, userPhone }: AccountNavProps) {
         type="button"
         onClick={onSignOut}
         disabled={signingOut}
-        className="mt-6 border-t border-charcoal/10 pt-6 text-[11px] uppercase tracking-[0.22em] text-charcoal/50 transition-colors hover:text-danger disabled:opacity-50"
+        className="mt-6 border-t border-deep-brown/15 pt-6 text-[11px] uppercase tracking-[0.22em] text-deep-brown/60 transition-colors hover:text-danger disabled:opacity-50"
       >
         {signingOut ? "Signing out…" : "Sign out"}
       </button>

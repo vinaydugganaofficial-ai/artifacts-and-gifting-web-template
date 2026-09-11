@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
  * Accordion primitive.
  *
  * `tone` keeps the component reusable on both grounds it is needed on — the
- * charcoal footer and the ivory FAQ page — instead of baking one surface's
+ * forest footer and the warm sand FAQ page — instead of baking one surface's
  * colours into a shared component.
  */
 
@@ -19,13 +19,13 @@ export type AccordionTone = "light" | "dark";
 export const Accordion = AccordionPrimitive.Root;
 
 const itemTone: Record<AccordionTone, string> = {
-  light: "border-b border-charcoal/12",
-  dark: "border-b border-ivory/15",
+  light: "border-b border-deep-brown/15",
+  dark: "border-b border-sand/20",
 };
 
 const triggerTone: Record<AccordionTone, string> = {
-  light: "text-charcoal/80 hover:text-gold-muted",
-  dark: "text-ivory/80 hover:text-gold",
+  light: "text-deep-brown/85 hover:text-terracotta",
+  dark: "text-sand/85 hover:text-terracotta",
 };
 
 export function AccordionItem({
@@ -54,7 +54,7 @@ export function AccordionTrigger({
       >
         {children}
         <ChevronDown
-          className="size-3.5 shrink-0 text-gold transition-transform duration-500"
+          className="size-3.5 shrink-0 text-terracotta transition-transform duration-500"
           aria-hidden
         />
       </AccordionPrimitive.Trigger>

@@ -28,7 +28,7 @@ export type CommerceState = {
   clearCart: () => void;
 };
 
-const STORAGE_KEY = "aaranya-commerce";
+const STORAGE_KEY = "viraasat-commerce";
 
 /** Bump when the persisted shape changes, and add a `migrate` branch below. */
 const STORAGE_VERSION = 2;

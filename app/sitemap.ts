@@ -27,6 +27,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     [
       { url: base, changeFrequency: "weekly", priority: 1 },
       { url: `${base}/shop`, changeFrequency: "weekly", priority: 0.9 },
+      { url: `${base}/artifacts`, changeFrequency: "weekly", priority: 0.9 },
+      { url: `${base}/gifting`, changeFrequency: "weekly", priority: 0.9 },
+      { url: `${base}/gifting/corporate`, changeFrequency: "monthly", priority: 0.8 },
+      { url: `${base}/gifting/wedding`, changeFrequency: "monthly", priority: 0.8 },
+      { url: `${base}/gifting/festivals`, changeFrequency: "monthly", priority: 0.8 },
+      { url: `${base}/gifting/housewarming`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/collections`, changeFrequency: "monthly", priority: 0.8 },
       { url: `${base}/artisans`, changeFrequency: "monthly", priority: 0.7 },
       { url: `${base}/our-story`, changeFrequency: "yearly", priority: 0.6 },

@@ -19,7 +19,7 @@ export function PolicyPage({ policy }: { policy: Policy }) {
           title={policy.title}
           description={policy.intro}
         >
-          <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-charcoal/40">
+          <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-deep-brown/50">
             Last updated{" "}
             <time dateTime={toDateTimeAttribute(policy.updatedAt)}>
               {formatDate(policy.updatedAt)}
@@ -30,8 +30,8 @@ export function PolicyPage({ policy }: { policy: Policy }) {
         <div className="mt-16 max-w-3xl space-y-14">
           {policy.sections.map((section) => (
             <section key={section.heading}>
-              <h2 className="font-display text-2xl">{section.heading}</h2>
-              <span className="mt-4 block h-px w-10 bg-gold" aria-hidden />
+              <h2 className="font-display text-2xl text-forest">{section.heading}</h2>
+              <span className="mt-4 block h-px w-10 bg-terracotta" aria-hidden />
               <Prose paragraphs={section.body} className="mt-6" />
             </section>
           ))}

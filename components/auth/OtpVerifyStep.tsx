@@ -99,16 +99,16 @@ export function OtpVerifyStep({
   return (
     <div className="space-y-7">
       <div>
-        <p className="text-sm text-charcoal/70">
+        <p className="text-sm text-deep-brown/75">
           We sent a {challenge.codeLength}-digit code to{" "}
-          <span className="whitespace-nowrap text-charcoal">{challenge.maskedPhone}</span>
+          <span className="whitespace-nowrap text-deep-brown font-medium">{challenge.maskedPhone}</span>
           .
         </p>
 
         <button
           type="button"
           onClick={onEditNumber}
-          className="link-underline mt-2 text-xs text-charcoal/60"
+          className="link-underline mt-2 text-xs font-medium text-forest hover:text-terracotta"
         >
           Use a different number
         </button>
@@ -117,13 +117,13 @@ export function OtpVerifyStep({
       {/* Development affordance: with no SMS provider configured the API returns
           the code so the flow can be completed without one. */}
       {challenge.devCode ? (
-        <p className="border border-gold/40 bg-gold/5 px-4 py-3 text-xs leading-relaxed text-charcoal/70">
-          <span className="font-medium uppercase tracking-[0.2em] text-gold-muted">
+        <p className="border border-terracotta/30 bg-terracotta/5 px-4 py-3 text-xs leading-relaxed text-deep-brown/80">
+          <span className="font-medium uppercase tracking-[0.2em] text-terracotta">
             Development
           </span>
           <br />
           No SMS provider is configured, so the code is shown here:{" "}
-          <span className="text-base tracking-[0.3em] text-charcoal">
+          <span className="text-base font-mono tracking-[0.3em] text-deep-brown">
             {challenge.devCode}
           </span>
         </p>
@@ -140,7 +140,7 @@ export function OtpVerifyStep({
         <div>
           <label
             htmlFor="otp-code"
-            className="text-[10px] uppercase tracking-[0.22em] text-charcoal/50"
+            className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/60"
           >
             Verification code
           </label>
@@ -163,7 +163,7 @@ export function OtpVerifyStep({
               {error}
             </p>
           ) : (
-            <p id="otp-hint" className="mt-3 text-xs text-charcoal/50">
+            <p id="otp-hint" className="mt-3 text-xs text-deep-brown/50">
               {expired
                 ? "That code has expired. Ask for a new one."
                 : `The code expires in ${formatSeconds(expirySeconds)}.`}
@@ -181,17 +181,17 @@ export function OtpVerifyStep({
         </Button>
       </form>
 
-      <div className="border-t border-charcoal/10 pt-6">
+      <div className="border-t border-deep-brown/12 pt-6">
         {canResend ? (
           <button
             type="button"
             onClick={onResend}
-            className="link-underline text-sm text-charcoal"
+            className="link-underline text-sm font-medium text-forest hover:text-terracotta"
           >
             Resend code
           </button>
         ) : (
-          <p aria-live="polite" className="text-sm text-charcoal/50">
+          <p aria-live="polite" className="text-sm text-deep-brown/50">
             {resending ? "Sending…" : `Resend code in ${secondsLeft}s`}
           </p>
         )}

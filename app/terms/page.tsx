@@ -6,7 +6,7 @@ import { PolicyPage } from "@/components/shared/PolicyPage";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "The terms on which the Aaranya atelier sells.",
+  description: "The terms on which Viraasat crafts, packages, and delivers artifacts and bespoke gifting curations.",
   alternates: { canonical: "/terms" },
 };
 

@@ -109,25 +109,43 @@ export default async function ProductPage({ params }: Props) {
 
             <div className="flex flex-col justify-center py-2">
               <div className="flex items-center gap-3">
-                <p className="text-[11px] uppercase tracking-[0.32em] text-gold">
+                <p className="text-[11px] uppercase tracking-[0.32em] text-terracotta font-medium">
                   {product.category}
                 </p>
                 {!product.inStock ? <Badge tone="soldOut">Sold out</Badge> : null}
               </div>
 
-              <h1 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
+              <h1 className="mt-3 font-display text-4xl leading-tight text-forest sm:text-5xl">
                 {product.name}
               </h1>
 
-              <p className="mt-4 text-xl">{formatPrice(product.price)}</p>
+              <div className="mt-3 flex items-baseline gap-4">
+                <p className="text-2xl font-medium text-deep-brown">{formatPrice(product.price)}</p>
+                <span className="text-xs text-deep-brown/60">Taxes inclusive · Free insured pan-India delivery</span>
+              </div>
+
+              {/* Gifting & Occasions Tags */}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-sand/60 border border-deep-brown/10 text-[10px] uppercase tracking-[0.2em] text-deep-brown/80 font-medium">
+                  ✦ Bespoke Gift Wrapping Included
+                </span>
+                {product.giftingOccasions?.map((occ) => (
+                  <span
+                    key={occ}
+                    className="inline-flex items-center px-2.5 py-1 bg-off-white border border-deep-brown/10 text-[10px] uppercase tracking-[0.18em] text-terracotta font-medium"
+                  >
+                    {occ}
+                  </span>
+                ))}
+              </div>
 
               <span className={cn(tokens.hairline, "mt-6")} aria-hidden />
 
-              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-charcoal/70">
+              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-deep-brown/80">
                 {product.description}
               </p>
 
-              <dl className="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 text-sm text-charcoal/70">
+              <dl className="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 text-sm text-deep-brown/80">
                 <Detail term="Material" value={product.material} />
                 {product.dimensions ? (
                   <Detail term="Dimensions" value={product.dimensions} />
@@ -143,17 +161,17 @@ export default async function ProductPage({ params }: Props) {
 
               <ProductActions product={product} />
 
-              <p className="mt-8 border-t border-charcoal/10 pt-6 text-xs leading-relaxed text-charcoal/50">
-                Cast and finished by hand, so no two pieces are identical. Read more about{" "}
+              <p className="mt-8 border-t border-deep-brown/12 pt-6 text-xs leading-relaxed text-deep-brown/65">
+                Cast and finished by master artisans, so no two pieces are identical. Learn more about{" "}
                 <Link
                   href="/journal/the-lost-wax-method"
-                  className="link-underline text-charcoal/70"
+                  className="link-underline font-medium text-forest hover:text-terracotta"
                 >
                   the lost-wax method
                 </Link>{" "}
                 or our{" "}
-                <Link href="/shipping" className="link-underline text-charcoal/70">
-                  shipping and returns
+                <Link href="/shipping" className="link-underline font-medium text-forest hover:text-terracotta">
+                  insured transit & packaging
                 </Link>
                 .
               </p>
@@ -161,8 +179,8 @@ export default async function ProductPage({ params }: Props) {
           </div>
 
           {related.length > 0 ? (
-            <section className="mt-24 border-t border-charcoal/10 pt-16 md:mt-32">
-              <SectionHeading eyebrow="Also from the atelier" title="You may also like" />
+            <section className="mt-24 border-t border-deep-brown/12 pt-16 md:mt-32">
+              <SectionHeading eyebrow="Viraasat Curation" title="Complementary Artifacts" />
               <ProductGrid products={related} className="mt-12" />
             </section>
           ) : null}
@@ -183,8 +201,8 @@ function Detail({
 }) {
   return (
     <div className={className}>
-      <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/40">{term}</dt>
-      <dd className="mt-1">{value}</dd>
+      <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">{term}</dt>
+      <dd className="mt-1 text-deep-brown font-medium">{value}</dd>
     </div>
   );
 }

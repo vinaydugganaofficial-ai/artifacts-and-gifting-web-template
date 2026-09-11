@@ -15,60 +15,59 @@ type OrderPlacedProps = {
 /** Confirmation shown once an order has been accepted. */
 export function OrderPlaced({ receipt, signedIn, paymentLabel }: OrderPlacedProps) {
   return (
-    <div className="mx-auto max-w-2xl">
-      <p className="text-[11px] uppercase tracking-[0.38em] text-gold-muted">Confirmed</p>
+    <div className="mx-auto max-w-2xl bg-off-white/80 p-8 sm:p-12 border border-deep-brown/12">
+      <p className="text-[11px] uppercase tracking-[0.38em] text-terracotta font-medium">Order Confirmed</p>
 
-      <h1 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
+      <h1 className="mt-4 font-display text-3xl sm:text-4xl leading-tight text-forest">
         Thank you. Your order is placed.
       </h1>
 
-      <span className="mt-6 block h-px w-16 bg-gold" aria-hidden />
+      <span className="mt-5 block h-px w-16 bg-terracotta" aria-hidden />
 
-      <p className="mt-6 text-[16px] leading-relaxed text-charcoal/70">
+      <p className="mt-6 text-[16px] leading-relaxed text-deep-brown/80">
         We have sent a confirmation to{" "}
-        <span className="whitespace-nowrap text-charcoal">
+        <span className="whitespace-nowrap text-deep-brown font-medium">
           {formatPhone(receipt.phone)}
         </span>
         {receipt.email ? (
           <>
             {" and "}
-            <span className="text-charcoal">{receipt.email}</span>
+            <span className="text-deep-brown font-medium">{receipt.email}</span>
           </>
         ) : null}
-        . The atelier checks every piece by hand before it is packed, and will be in touch
-        if anything needs saying.
+        . The Viraasat concierge inspects every piece by hand and prepares our bespoke ceremonial gift packaging before dispatch.
       </p>
 
-      <dl className="mt-10 grid gap-x-8 gap-y-6 border-y border-charcoal/10 py-8 sm:grid-cols-2">
+      <dl className="mt-10 grid gap-x-8 gap-y-6 border-y border-deep-brown/15 py-8 sm:grid-cols-2">
         <div>
-          <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/45">
+          <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
             Order number
           </dt>
-          <dd className="mt-2 font-display text-2xl">{receipt.orderNumber}</dd>
+          <dd className="mt-2 font-display text-2xl text-forest">{receipt.orderNumber}</dd>
         </div>
 
         <div>
-          <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/45">
+          <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
             Total
           </dt>
-          <dd className="mt-2 font-display text-2xl tabular-nums">
+          <dd className="mt-2 font-display text-2xl tabular-nums text-forest">
             {formatPrice(receipt.totals.total)}
           </dd>
         </div>
 
         <div>
-          <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/45">
+          <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
             Payment
           </dt>
-          <dd className="mt-2 text-sm text-charcoal/75">{paymentLabel}</dd>
+          <dd className="mt-2 text-sm text-deep-brown font-medium">{paymentLabel}</dd>
         </div>
 
         {receipt.estimatedDelivery ? (
           <div>
-            <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/45">
+            <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
               Estimated delivery
             </dt>
-            <dd className="mt-2 text-sm text-charcoal/75">
+            <dd className="mt-2 text-sm text-deep-brown font-medium">
               <time dateTime={toDateTimeAttribute(receipt.estimatedDelivery)}>
                 {formatDate(receipt.estimatedDelivery)}
               </time>
@@ -77,9 +76,8 @@ export function OrderPlaced({ receipt, signedIn, paymentLabel }: OrderPlacedProp
         ) : null}
       </dl>
 
-      <p className="mt-8 text-sm leading-relaxed text-charcoal/60">
-        Keep your order number — it is all you need to follow the piece from the workshop
-        to your door.
+      <p className="mt-8 text-sm leading-relaxed text-deep-brown/70">
+        Keep your order number handy — our concierge will keep you updated as your artifact journeys from the artisan&apos;s workshop to your threshold.
       </p>
 
       <div className="mt-10 flex flex-wrap gap-4">
@@ -88,25 +86,25 @@ export function OrderPlaced({ receipt, signedIn, paymentLabel }: OrderPlacedProp
             href={`/account/orders/${encodeURIComponent(receipt.orderNumber)}`}
             className={buttonVariants({ variant: "primary" })}
           >
-            View this order
+            View This Order
           </Link>
         ) : (
           <Link href="/track-order" className={buttonVariants({ variant: "primary" })}>
-            Track this order
+            Track This Order
           </Link>
         )}
 
         <Link href="/shop" className={cn(buttonVariants({ variant: "outline" }))}>
-          Continue looking
+          Continue Exploring
         </Link>
       </div>
 
       {!signedIn ? (
-        <p className="mt-10 border-t border-charcoal/10 pt-6 text-sm text-charcoal/60">
-          <Link href="/sign-up" className="link-underline text-charcoal">
+        <p className="mt-10 border-t border-deep-brown/12 pt-6 text-sm text-deep-brown/70">
+          <Link href="/sign-up" className="link-underline font-medium text-forest hover:text-terracotta">
             Create an account
           </Link>{" "}
-          with {receipt.email} and this order will appear in your history automatically.
+          with this phone number to track orders and save gifting preferences automatically.
         </p>
       ) : null}
     </div>

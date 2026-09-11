@@ -137,10 +137,10 @@ export function SignUpForm({
       />
 
       {alreadyRegistered ? (
-        <p className="text-sm text-charcoal/70">
+        <p className="text-sm text-deep-brown/70">
           <Link
             href={`/sign-in?next=${encodeURIComponent(returnTo)}`}
-            className="link-underline text-charcoal"
+            className="link-underline font-medium text-forest hover:text-terracotta"
           >
             Sign in
           </Link>{" "}
@@ -152,13 +152,13 @@ export function SignUpForm({
         {sending ? "Sending code…" : "Send code"}
       </Button>
 
-      <p className="text-xs leading-relaxed text-charcoal/50">
+      <p className="text-xs leading-relaxed text-deep-brown/60">
         By creating an account you agree to our{" "}
-        <Link href="/terms" className="link-underline text-charcoal/70">
+        <Link href="/terms" className="link-underline text-forest hover:text-terracotta">
           terms
         </Link>{" "}
         and{" "}
-        <Link href="/privacy" className="link-underline text-charcoal/70">
+        <Link href="/privacy" className="link-underline text-forest hover:text-terracotta">
           privacy policy
         </Link>
         . Anything you have ordered as a guest on this number will appear in your order

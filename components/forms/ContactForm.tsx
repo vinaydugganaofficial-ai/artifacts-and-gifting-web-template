@@ -44,13 +44,13 @@ export function ContactForm() {
 
   if (receipt) {
     return (
-      <div className="border border-gold/40 p-8 sm:p-10" role="status">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-gold">Sent</p>
-        <h2 className="mt-4 font-display text-3xl leading-snug">
+      <div className="border border-forest/40 bg-sand/30 p-8 sm:p-10" role="status">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-terracotta font-medium">Sent</p>
+        <h2 className="mt-4 font-display text-3xl leading-snug text-forest">
           Thank you for writing.
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-charcoal/70">{receipt.message}</p>
-        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-charcoal/45">
+        <p className="mt-4 text-sm leading-relaxed text-deep-brown/80">{receipt.message}</p>
+        <p className="mt-6 text-xs uppercase tracking-[0.2em] text-deep-brown/50">
           Reference {receipt.id}
         </p>
       </div>

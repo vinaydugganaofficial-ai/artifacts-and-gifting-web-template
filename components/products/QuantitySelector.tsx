@@ -33,7 +33,7 @@ export function QuantitySelector({
       role="group"
       aria-label={label}
       className={cn(
-        "inline-flex items-center border border-charcoal/20",
+        "inline-flex items-center border border-deep-brown/20 bg-off-white/80",
         disabled && "opacity-40",
         className,
       )}
@@ -42,14 +42,14 @@ export function QuantitySelector({
         type="button"
         aria-label="Decrease quantity"
         disabled={disabled || atMin}
-        className="grid size-11 place-items-center text-charcoal/70 transition-colors hover:text-charcoal disabled:cursor-not-allowed disabled:text-charcoal/25"
+        className="grid size-11 place-items-center text-deep-brown/70 transition-colors hover:text-forest disabled:cursor-not-allowed disabled:text-deep-brown/25"
         onClick={() => onChange(Math.max(min, value - 1))}
       >
         <Minus className="size-3.5" />
       </button>
 
       {/* Announced as a live value so keyboard users hear the change. */}
-      <span aria-live="polite" className="min-w-8 text-center text-sm tabular-nums">
+      <span aria-live="polite" className="min-w-8 text-center text-sm tabular-nums text-deep-brown font-medium">
         {value}
       </span>
 
@@ -57,7 +57,7 @@ export function QuantitySelector({
         type="button"
         aria-label="Increase quantity"
         disabled={disabled || atMax}
-        className="grid size-11 place-items-center text-charcoal/70 transition-colors hover:text-charcoal disabled:cursor-not-allowed disabled:text-charcoal/25"
+        className="grid size-11 place-items-center text-deep-brown/70 transition-colors hover:text-forest disabled:cursor-not-allowed disabled:text-deep-brown/25"
         onClick={() => onChange(Math.min(max, value + 1))}
       >
         <Plus className="size-3.5" />

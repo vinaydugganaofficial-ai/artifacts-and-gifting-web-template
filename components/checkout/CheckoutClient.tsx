@@ -152,9 +152,9 @@ export function CheckoutClient({
           <SectionTitle step="01" title="Contact" />
 
           {user ? (
-            <p className="mt-6 text-sm text-charcoal/70">
+            <p className="mt-6 text-sm text-deep-brown/75">
               Signed in as{" "}
-              <span className="whitespace-nowrap text-charcoal">
+              <span className="whitespace-nowrap font-medium text-forest">
                 {formatPhone(user.phone)}
               </span>
               . We will confirm your order on this number.
@@ -196,11 +196,11 @@ export function CheckoutClient({
                 />
               </Field>
 
-              <p className="text-xs text-charcoal/50">
+              <p className="text-xs text-deep-brown/60">
                 Have an account?{" "}
                 <Link
                   href="/sign-in?next=%2Fcheckout"
-                  className="link-underline text-charcoal/75"
+                  className="link-underline font-medium text-terracotta hover:text-forest"
                 >
                   Sign in
                 </Link>{" "}
@@ -225,8 +225,8 @@ export function CheckoutClient({
                     className={cn(
                       "flex cursor-pointer gap-4 border p-5 transition-colors",
                       selectedAddressId === address.id
-                        ? "border-gold/60 bg-gold/5"
-                        : "border-charcoal/12 hover:border-charcoal/30",
+                        ? "border-forest bg-sand/30"
+                        : "border-deep-brown/15 hover:border-deep-brown/30",
                     )}
                   >
                     <input
@@ -235,19 +235,19 @@ export function CheckoutClient({
                       value={address.id}
                       checked={selectedAddressId === address.id}
                       onChange={() => setSelectedAddressId(address.id)}
-                      className="mt-1 size-4 shrink-0 accent-[var(--color-gold)]"
+                      className="mt-1 size-4 shrink-0 accent-terracotta"
                     />
 
                     <span className="min-w-0 text-sm">
-                      <span className="block font-medium text-charcoal">
+                      <span className="block font-medium text-forest">
                         {address.label}
                         {address.isDefault ? (
-                          <span className="ml-2 text-[10px] uppercase tracking-[0.2em] text-gold-muted">
+                          <span className="ml-2 text-[10px] uppercase tracking-[0.2em] text-terracotta">
                             Default
                           </span>
                         ) : null}
                       </span>
-                      <span className="mt-1 block text-charcoal/60">
+                      <span className="mt-1 block text-deep-brown/70">
                         {address.recipient}, {address.line1}
                         {address.line2 ? `, ${address.line2}` : ""}, {address.city},{" "}
                         {address.state} {address.postalCode}
@@ -260,8 +260,8 @@ export function CheckoutClient({
                   className={cn(
                     "flex cursor-pointer gap-4 border p-5 transition-colors",
                     usingNewAddress
-                      ? "border-gold/60 bg-gold/5"
-                      : "border-charcoal/12 hover:border-charcoal/30",
+                      ? "border-forest bg-sand/30"
+                      : "border-deep-brown/15 hover:border-deep-brown/30",
                   )}
                 >
                   <input
@@ -270,9 +270,9 @@ export function CheckoutClient({
                     value="new"
                     checked={usingNewAddress}
                     onChange={() => setSelectedAddressId("new")}
-                    className="mt-1 size-4 shrink-0 accent-[var(--color-gold)]"
+                    className="mt-1 size-4 shrink-0 accent-terracotta"
                   />
-                  <span className="text-sm text-charcoal">Send to a new address</span>
+                  <span className="text-sm font-medium text-deep-brown">Send to a new address</span>
                 </label>
               </div>
             </fieldset>
@@ -388,10 +388,10 @@ export function CheckoutClient({
               </Field>
 
               {user ? (
-                <label className="flex cursor-pointer items-center gap-3 text-sm text-charcoal/70 sm:col-span-2">
+                <label className="flex cursor-pointer items-center gap-3 text-sm text-deep-brown/80 sm:col-span-2">
                   <input
                     type="checkbox"
-                    className="size-4 accent-[var(--color-gold)]"
+                    className="size-4 accent-terracotta"
                     {...register("saveAddress")}
                   />
                   Save this address to my account
@@ -412,19 +412,19 @@ export function CheckoutClient({
               {PAYMENT_METHODS.map((method) => (
                 <label
                   key={method.value}
-                  className="flex cursor-pointer gap-4 border border-charcoal/12 p-5 transition-colors hover:border-charcoal/30 has-[:checked]:border-gold/60 has-[:checked]:bg-gold/5"
+                  className="flex cursor-pointer gap-4 border border-deep-brown/15 p-5 transition-colors hover:border-deep-brown/30 has-[:checked]:border-forest has-[:checked]:bg-sand/30"
                 >
                   <input
                     type="radio"
                     value={method.value}
-                    className="mt-1 size-4 shrink-0 accent-[var(--color-gold)]"
+                    className="mt-1 size-4 shrink-0 accent-terracotta"
                     {...register("paymentMethod")}
                   />
                   <span className="min-w-0 text-sm">
-                    <span className="block font-medium text-charcoal">
+                    <span className="block font-medium text-forest">
                       {method.label}
                     </span>
-                    <span className="mt-1 block text-charcoal/60">{method.detail}</span>
+                    <span className="mt-1 block text-deep-brown/70">{method.detail}</span>
                   </span>
                 </label>
               ))}
@@ -437,27 +437,28 @@ export function CheckoutClient({
             </p>
           ) : null}
 
-          <p className="mt-5 text-xs leading-relaxed text-charcoal/50">
-            Nothing is charged on this page. The atelier confirms availability, then sends
+          <p className="mt-5 text-xs leading-relaxed text-deep-brown/60">
+            Nothing is charged on this page. The Viraasat concierge confirms availability, then sends
             a payment link or invoice for the method you chose.
           </p>
         </section>
 
         {/* 4 — Anything else */}
         <section>
-          <SectionTitle step="04" title="Anything we should know" />
+          <SectionTitle step="04" title="Gifting & Bespoke Notes" />
 
           <div className="mt-6">
             <Field
               htmlFor="checkout-note"
-              label="Note for the atelier"
+              label="Note for the concierge"
               hideLabel
-              hint="Optional. A gift message, a placement, a deadline."
+              hint="Optional. A personalized handwritten gift card message, custom packaging request, or delivery deadline."
               error={errors.note?.message}
             >
               <Textarea
                 id="checkout-note"
                 rows={3}
+                placeholder="Include custom calligraphy message, wedding tag names, or specific delivery instructions..."
                 invalid={Boolean(errors.note)}
                 {...register("note")}
               />
@@ -502,9 +503,9 @@ export function CheckoutClient({
             {isSubmitting ? "Placing your order…" : "Place order"}
           </Button>
 
-          <p className="mt-4 text-xs leading-relaxed text-charcoal/50">
+          <p className="mt-4 text-xs leading-relaxed text-deep-brown/60">
             By placing this order you agree to our{" "}
-            <Link href="/terms" className="link-underline text-charcoal/70">
+            <Link href="/terms" className="link-underline font-medium text-terracotta hover:text-forest">
               terms of sale
             </Link>
             .
@@ -533,11 +534,11 @@ export function CheckoutClient({
 
 function SectionTitle({ step, title }: { step: string; title: string }) {
   return (
-    <div className="flex items-baseline gap-4 border-b border-charcoal/10 pb-4">
-      <span aria-hidden className="font-display text-2xl text-gold/60">
+    <div className="flex items-baseline gap-4 border-b border-deep-brown/15 pb-4">
+      <span aria-hidden className="font-display text-2xl text-terracotta">
         {step}
       </span>
-      <h2 className="font-display text-2xl">{title}</h2>
+      <h2 className="font-display text-2xl text-forest">{title}</h2>
     </div>
   );
 }

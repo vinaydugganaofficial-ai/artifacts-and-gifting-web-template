@@ -32,23 +32,23 @@ export default function RouteError({ error, unstable_retry, reset }: ErrorProps)
 
   return (
     <section className="mx-auto flex min-h-[70svh] max-w-2xl flex-col justify-center px-5 py-32">
-      <p className="text-[11px] uppercase tracking-[0.38em] text-gold-muted">
+      <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-terracotta">
         Something broke
       </p>
 
-      <h1 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
+      <h1 className="mt-4 font-display text-4xl leading-tight text-forest sm:text-5xl">
         This page did not load.
       </h1>
 
-      <span className="mt-6 block h-px w-16 bg-gold" aria-hidden />
+      <span className="mt-6 block h-px w-16 bg-terracotta" aria-hidden />
 
-      <p className="mt-6 text-charcoal/65">
+      <p className="mt-6 text-deep-brown/75">
         The fault is at our end, not yours. Trying again often resolves it — if it does
         not, the collection is still browsable.
       </p>
 
       {error.digest ? (
-        <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-charcoal/40">
+        <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-deep-brown/50">
           Reference {error.digest}
         </p>
       ) : null}
@@ -58,13 +58,13 @@ export default function RouteError({ error, unstable_retry, reset }: ErrorProps)
           <button
             type="button"
             onClick={() => retry()}
-            className={buttonVariants({ variant: "primary" })}
+            className={buttonVariants({ variant: "forest" })}
           >
             Try again
           </button>
         ) : null}
 
-        <Link href="/" className={cn(buttonVariants({ variant: "outline" }))}>
+        <Link href="/" className={cn(buttonVariants({ variant: "sand" }))}>
           Return home
         </Link>
       </div>

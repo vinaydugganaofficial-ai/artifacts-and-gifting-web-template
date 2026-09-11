@@ -11,15 +11,14 @@ import { tokens } from "@/config/theme";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Shop",
+  title: "The Collection — Handcrafted Indian Artifacts & Heritage Gifting",
   description:
-    "Every piece currently in the Aaranya atelier — brass idols, lamps, bells and objects, cast and finished by hand.",
+    "Explore the complete Viraasat collection — traditional brass figurines, heritage home décor, sacred forms, and curated gifting edits.",
   alternates: { canonical: "/shop" },
 };
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-/** Reads a single string value, ignoring repeated params. */
 function readParam(
   params: Record<string, string | string[] | undefined>,
   key: string,
@@ -38,6 +37,8 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
   const params = await searchParams;
 
   const collection = readParam(params, "collection") ?? "";
+  const occasion = readParam(params, "occasion") ?? "";
+  const budget = readParam(params, "budget") ?? "";
   const sort = readSort(readParam(params, "sort"));
   const inStockOnly = readParam(params, "inStockOnly") === "true";
   const page = Number.parseInt(readParam(params, "page") ?? "1", 10);
@@ -45,6 +46,8 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
   const [result, collections] = await Promise.all([
     listProducts({
       collection: collection || undefined,
+      occasion: occasion || undefined,
+      budget: budget || undefined,
       sort,
       inStockOnly,
       page: Number.isFinite(page) ? page : 1,
@@ -58,14 +61,16 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
     <section className={cn(tokens.gutter, tokens.pageTop, tokens.pageBottom)}>
       <div className={tokens.container}>
         <PageHeader
-          eyebrow="The Collection"
-          title="All Artifacts"
-          description="A current gathering of brass idols, lamps, and objects from the atelier. Each is cast, chased and finished by a named artisan."
+          eyebrow="Viraasat Catalogue"
+          title="All Artifacts & Gifting"
+          description="A gathering of hand-cast brass idols, heirloom vessels, and curated gifts. Each piece is crafted in generational workshops and wrapped for meaningful moments."
         />
 
         <ShopFilters
           collections={collections}
           collection={collection}
+          occasion={occasion}
+          budget={budget}
           sort={sort}
           inStockOnly={inStockOnly}
           action="/shop"
@@ -81,6 +86,8 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
               basePath="/shop"
               params={{
                 collection: collection || undefined,
+                occasion: occasion || undefined,
+                budget: budget || undefined,
                 sort: sort === "featured" ? undefined : sort,
                 inStockOnly: inStockOnly ? "true" : undefined,
               }}
@@ -93,7 +100,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SearchP
             description={
               activeCollection
                 ? `There are no pieces in ${activeCollection.title} matching the rest of your selection.`
-                : "Try widening the selection — or view the full collection."
+                : "Try widening the selection or clearing your filters to view the full collection."
             }
             action={{ href: "/shop", label: "Clear filters" }}
           />

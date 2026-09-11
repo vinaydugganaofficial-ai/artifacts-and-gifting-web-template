@@ -66,9 +66,9 @@ export function ProfileForm({ user }: { user: User }) {
         <Input id="profile-phone" value={formatPhone(user.phone)} readOnly disabled />
       </Field>
 
-      <p className="text-xs text-charcoal/50">
+      <p className="text-xs text-deep-brown/60">
         Your mobile number is how you sign in. To move your account to a different number,
-        write to the atelier and we will verify the change for you.
+        write to the Viraasat concierge and we will verify the change for you.
       </p>
 
       <Field
@@ -87,13 +87,13 @@ export function ProfileForm({ user }: { user: User }) {
         />
       </Field>
 
-      <label className="flex cursor-pointer items-start gap-3 text-sm text-charcoal/70">
+      <label className="flex cursor-pointer items-start gap-3 text-sm text-deep-brown/80">
         <input
           type="checkbox"
-          className="mt-0.5 size-4 accent-[var(--color-gold)]"
+          className="mt-0.5 size-4 accent-terracotta"
           {...register("marketingOptIn")}
         />
-        <span>Send me new collections and artisan stories.</span>
+        <span>Send me new gifting collections and artisan heritage stories.</span>
       </label>
 
       {submitError ? (
@@ -106,7 +106,7 @@ export function ProfileForm({ user }: { user: User }) {
         {isSubmitting ? "Saving…" : "Save details"}
       </Button>
 
-      <p className="text-xs text-charcoal/45">
+      <p className="text-xs text-deep-brown/60">
         Member since{" "}
         <time dateTime={toDateTimeAttribute(user.createdAt)}>
           {formatDate(user.createdAt)}
@@ -125,19 +125,19 @@ export function ProfileForm({ user }: { user: User }) {
  */
 export function SignInMethodPanel({ user }: { user: User }) {
   return (
-    <div className="max-w-lg space-y-4 border border-charcoal/10 p-6">
-      <p className="text-[11px] uppercase tracking-[0.24em] text-gold-muted">
+    <div className="max-w-lg space-y-4 border border-deep-brown/15 bg-sand/20 p-6">
+      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-terracotta">
         One-time code
       </p>
 
-      <p className="text-[15px] leading-relaxed text-charcoal/70">
+      <p className="text-[15px] leading-relaxed text-deep-brown/80">
         You sign in with a code sent to{" "}
-        <span className="whitespace-nowrap text-charcoal">{formatPhone(user.phone)}</span>
+        <span className="whitespace-nowrap font-medium text-forest">{formatPhone(user.phone)}</span>
         . There is no password on this account, so there is nothing to forget, reuse or
         have stolen.
       </p>
 
-      <p className="text-sm leading-relaxed text-charcoal/55">
+      <p className="text-sm leading-relaxed text-deep-brown/70">
         Codes expire a few minutes after they are sent and can only be used once. If you
         receive one you did not ask for, someone has your number but not your phone —
         ignore it, and tell us if it keeps happening.

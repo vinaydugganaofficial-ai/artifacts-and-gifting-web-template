@@ -15,17 +15,17 @@ export default function Loading() {
           Loading
         </span>
 
-        <div className="h-3 w-28 bg-charcoal/10" />
-        <div className="mt-6 h-12 w-2/3 max-w-xl bg-charcoal/10" />
-        <div className="mt-6 h-px w-16 bg-gold/40" />
+        <div className="h-3 w-28 bg-deep-brown/10" />
+        <div className="mt-6 h-12 w-2/3 max-w-xl bg-deep-brown/10" />
+        <div className="mt-6 h-px w-16 bg-terracotta/40" />
         <div className="mt-6 space-y-2">
-          <div className="h-3 w-full max-w-xl bg-charcoal/10" />
-          <div className="h-3 w-3/4 max-w-lg bg-charcoal/10" />
+          <div className="h-3 w-full max-w-xl bg-deep-brown/10" />
+          <div className="h-3 w-3/4 max-w-lg bg-deep-brown/10" />
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-px bg-charcoal/10 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-2 gap-px bg-deep-brown/12 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="aspect-[3/4] bg-charcoal/5" />
+            <div key={index} className="aspect-[3/4] bg-sand/30" />
           ))}
         </div>
       </div>

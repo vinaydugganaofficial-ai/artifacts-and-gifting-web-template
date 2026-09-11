@@ -74,8 +74,22 @@ export const faqs: Faq[] = [
   {
     id: "commission",
     category: "Orders",
-    question: "Do you take commissions?",
+    question: "Do you take commissions or heirloom curations?",
     answer:
-      "For larger devotional figures, yes. Lead time is typically eight to sixteen weeks depending on scale and the artisan's queue. Write to the atelier through the Contact page with the form, size and intended placement.",
+      "For larger devotional figures and architectural pieces, yes. Lead time is typically eight to sixteen weeks depending on scale and the artisan's queue. Write to the concierge through the Contact page with the form, size and intended placement.",
+  },
+  {
+    id: "gifting-customization",
+    category: "Gifting",
+    question: "Can artifacts be gift-wrapped with handwritten messages?",
+    answer:
+      "Yes. Every Viraasat order includes complimentary signature heritage gift packaging — raw mulberry silk ribbons, lokta paper, and a personalized calligraphy gift note. You can include your custom message at checkout or via our concierge.",
+  },
+  {
+    id: "corporate-wedding-bulk",
+    category: "Gifting",
+    question: "Do you offer corporate gifting suites or wedding favor tiers?",
+    answer:
+      "Yes. We offer tiered institutional courtesies, custom wooden gift box engraving, embossed brass seals, and co-branded tags for corporate partnerships, Diwali suites, and wedding celebrations. Visit our Corporate Gifting or Wedding Edit pages to request a consultation.",
   },
 ];

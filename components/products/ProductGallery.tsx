@@ -23,14 +23,14 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative aspect-[3/4] overflow-hidden bg-charcoal">
+      <div className="relative aspect-[3/4] overflow-hidden bg-[#EAE0CF] p-6 sm:p-8 border border-deep-brown/10">
         <Image
           key={current.src}
           src={current.src}
           alt={current.alt}
           fill
           priority
-          className="object-cover"
+          className="object-contain p-4 transition-all duration-500"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </div>
@@ -45,9 +45,9 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                 aria-label={image.alt}
                 aria-current={index === active}
                 className={cn(
-                  "relative block size-20 overflow-hidden bg-charcoal transition-opacity",
+                  "relative block size-20 overflow-hidden bg-[#EAE0CF] p-1 border border-deep-brown/10 transition-opacity",
                   index === active
-                    ? "opacity-100 outline outline-1 outline-offset-2 outline-gold"
+                    ? "opacity-100 outline outline-2 outline-offset-2 outline-terracotta"
                     : "opacity-60 hover:opacity-100",
                 )}
               >
@@ -56,7 +56,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                   alt=""
                   aria-hidden
                   fill
-                  className="object-cover"
+                  className="object-contain p-1"
                   sizes="80px"
                 />
               </button>

@@ -33,14 +33,14 @@ export default function GlobalError({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#f7f3ea",
-          color: "#2c2520",
+          background: "#F8F5EE",
+          color: "#332A24",
           fontFamily: "system-ui, sans-serif",
           padding: "2rem",
         }}
       >
         {/* `global-error` cannot export metadata, so the title is set here. */}
-        <title>Something went wrong — Aaranya</title>
+        <title>Something went wrong — Viraasat</title>
 
         <main style={{ maxWidth: "34rem" }}>
           <p
@@ -48,11 +48,12 @@ export default function GlobalError({
               fontSize: "0.6875rem",
               letterSpacing: "0.38em",
               textTransform: "uppercase",
-              color: "#8f7348",
+              color: "#A94F35",
               margin: 0,
+              fontWeight: 600,
             }}
           >
-            Something broke
+            Something went wrong
           </p>
 
           <h1
@@ -62,6 +63,7 @@ export default function GlobalError({
               lineHeight: 1.15,
               margin: "1rem 0 0",
               fontWeight: 500,
+              color: "#243A2D",
             }}
           >
             The site failed to load.
@@ -69,14 +71,14 @@ export default function GlobalError({
 
           <div
             style={{
-              height: 1,
+              height: 2,
               width: "4rem",
-              background: "#b08d57",
+              background: "#A94F35",
               margin: "1.5rem 0",
             }}
           />
 
-          <p style={{ color: "rgba(44,37,32,0.65)", lineHeight: 1.65, margin: 0 }}>
+          <p style={{ color: "rgba(51,42,36,0.75)", lineHeight: 1.65, margin: 0 }}>
             An unexpected error stopped the page rendering. Reloading usually clears it.
           </p>
 
@@ -87,7 +89,7 @@ export default function GlobalError({
                 fontSize: "0.6875rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "rgba(44,37,32,0.4)",
+                color: "rgba(51,42,36,0.5)",
               }}
             >
               Reference {error.digest}
@@ -101,13 +103,14 @@ export default function GlobalError({
               marginTop: "2.5rem",
               height: "3rem",
               padding: "0 1.75rem",
-              background: "#2c2520",
-              color: "#f7f3ea",
+              background: "#243A2D",
+              color: "#F8F5EE",
               border: "none",
               cursor: "pointer",
               fontSize: "0.6875rem",
               letterSpacing: "0.22em",
               textTransform: "uppercase",
+              fontWeight: 500,
             }}
           >
             Try again

@@ -58,7 +58,7 @@ export default async function ArtisanDetailPage({ params }: Props) {
         />
 
         <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-20">
-          <div className="relative aspect-[4/5] overflow-hidden bg-charcoal lg:sticky lg:top-28 lg:self-start">
+          <div className="relative aspect-[4/5] overflow-hidden border border-deep-brown/15 bg-sand lg:sticky lg:top-28 lg:self-start">
             <Image
               src={artisan.portrait}
               alt={artisan.portraitAlt}
@@ -72,24 +72,24 @@ export default async function ArtisanDetailPage({ params }: Props) {
           <div>
             <PageHeader eyebrow={artisan.craft} title={artisan.name} />
 
-            <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-5 border-y border-charcoal/10 py-6 text-sm">
+            <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-5 border-y border-deep-brown/15 py-6 text-sm">
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/40">
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
                   Region
                 </dt>
-                <dd className="mt-1 text-charcoal/75">{artisan.region}</dd>
+                <dd className="mt-1 text-deep-brown font-medium">{artisan.region}</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/40">
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
                   At the bench
                 </dt>
-                <dd className="mt-1 text-charcoal/75">{artisan.yearsActive} years</dd>
+                <dd className="mt-1 text-deep-brown font-medium">{artisan.yearsActive} years</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-charcoal/40">
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/50 font-medium">
                   Craft
                 </dt>
-                <dd className="mt-1 text-charcoal/75">{artisan.craft}</dd>
+                <dd className="mt-1 text-deep-brown font-medium">{artisan.craft}</dd>
               </div>
             </dl>
 
@@ -98,9 +98,9 @@ export default async function ArtisanDetailPage({ params }: Props) {
         </div>
 
         {products.length > 0 ? (
-          <section className="mt-24 border-t border-charcoal/10 pt-16 md:mt-32">
+          <section className="mt-24 border-t border-deep-brown/15 pt-16 md:mt-32">
             <SectionHeading
-              eyebrow="From this bench"
+              eyebrow="Master Craft"
               title={`Pieces by ${artisan.name}`}
             />
             <ProductGrid products={products} className="mt-12" />

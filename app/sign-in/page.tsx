@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in to your Aaranya account with your mobile number.",
+  description: "Sign in to your Viraasat account with your mobile number.",
   robots: { index: false, follow: true },
 };
 
@@ -36,17 +36,17 @@ export default async function SignInPage({
 
   return (
     <AuthShell
-      eyebrow="The Atelier"
-      title="Welcome back."
-      description="Enter your mobile number and we will send you a one-time code. No password to remember."
+      eyebrow="The Concierge"
+      title="Welcome back to Viraasat."
+      description="Enter your mobile number to receive a secure one-time code. Access your bespoke gifting edits, saved artifacts, and dispatch records."
       image={{
-        src: "/images/gallery/interior.jpg",
-        alt: "A brass sculpture in a quiet interior",
+        src: "/images/hero-gifting.jpg",
+        alt: "Handcrafted Indian brass sculpture with bespoke gifting packaging",
       }}
       footer={{
-        prompt: "No account yet?",
+        prompt: "New to Viraasat?",
         href: `/sign-up?next=${encodeURIComponent(returnTo)}`,
-        label: "Create one",
+        label: "Create an account",
       }}
     >
       <SignInForm

@@ -25,7 +25,7 @@ export function FeaturedArtifacts({
   if (products.length === 0) return null;
 
   return (
-    <section className="bg-ivory px-5 py-24 md:px-8 md:py-28 lg:px-12">
+    <section className="bg-off-white px-5 py-24 md:px-8 md:py-28 lg:px-12">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <SectionHeading eyebrow={eyebrow} title={title} description={description} />
@@ -37,7 +37,7 @@ export function FeaturedArtifacts({
 
         <Link
           href={action.href}
-          className={cn(buttonVariants({ variant: "outline" }), "mt-12")}
+          className={cn(buttonVariants({ variant: "sand" }), "mt-12")}
         >
           {action.label}
         </Link>

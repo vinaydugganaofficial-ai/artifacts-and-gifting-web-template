@@ -15,12 +15,12 @@ import { cn } from "@/lib/utils";
  */
 
 const controlBase =
-  "w-full border-0 border-b bg-transparent px-0 text-sm tracking-wide text-charcoal placeholder:text-charcoal/40 focus:outline-none transition-colors";
+  "w-full border-0 border-b bg-transparent px-0 text-sm tracking-wide text-deep-brown placeholder:text-deep-brown/40 focus:outline-none transition-colors";
 
 const controlTone = (invalid?: boolean) =>
   invalid
     ? "border-b-danger focus:border-b-danger"
-    : "border-b-charcoal/25 focus:border-b-gold";
+    : "border-b-deep-brown/25 focus:border-b-terracotta";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   invalid?: boolean;
@@ -97,7 +97,7 @@ export function Field({
       <label
         htmlFor={htmlFor}
         className={cn(
-          "text-[10px] uppercase tracking-[0.22em] text-charcoal/50",
+          "text-[10px] uppercase tracking-[0.22em] text-deep-brown/60",
           hideLabel && "sr-only",
         )}
       >
@@ -107,7 +107,7 @@ export function Field({
       {children}
 
       {hint && !error ? (
-        <p id={`${htmlFor}-hint`} className="text-xs text-charcoal/50">
+        <p id={`${htmlFor}-hint`} className="text-xs text-deep-brown/50">
           {hint}
         </p>
       ) : null}

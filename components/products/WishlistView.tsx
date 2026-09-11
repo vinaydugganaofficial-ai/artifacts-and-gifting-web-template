@@ -14,18 +14,18 @@ export function WishlistView() {
     return (
       <EmptyState
         className="mt-12"
-        title="Nothing saved yet."
-        description="Pieces you set aside are kept here, in this browser, until you are ready."
-        action={{ href: "/shop", label: "Begin with the collection" }}
+        title="Your wishlist is empty."
+        description="Artifacts and gifting curations you set aside will remain saved here until you are ready."
+        action={{ href: "/shop", label: "Explore the Collection" }}
       />
     );
   }
 
   if (loading && products.length === 0) {
     return (
-      <div className="mt-14 grid animate-pulse grid-cols-2 gap-px bg-charcoal/10 lg:grid-cols-3">
+      <div className="mt-14 grid animate-pulse grid-cols-2 gap-4 lg:grid-cols-3">
         {Array.from({ length: Math.min(wishlist.length, 6) }).map((_, index) => (
-          <div key={index} className="aspect-[3/4] bg-charcoal/5" />
+          <div key={index} className="aspect-[3/4] bg-[#EAE0CF]/40 border border-deep-brown/10" />
         ))}
       </div>
     );

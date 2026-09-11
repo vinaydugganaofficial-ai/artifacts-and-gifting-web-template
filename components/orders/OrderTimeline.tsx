@@ -26,12 +26,12 @@ export function OrderTimeline({ status, history, className }: OrderTimelineProps
 
     return (
       <div className={cn("border border-danger/30 bg-danger/5 p-6", className)}>
-        <p className="text-[11px] uppercase tracking-[0.24em] text-danger">Cancelled</p>
-        <p className="mt-3 text-sm leading-relaxed text-charcoal/70">
+        <p className="text-[11px] uppercase tracking-[0.24em] text-danger font-medium">Cancelled</p>
+        <p className="mt-3 text-sm leading-relaxed text-deep-brown/80">
           {ORDER_STATUS_DESCRIPTIONS.cancelled}
         </p>
         {cancelledAt ? (
-          <p className="mt-2 text-xs text-charcoal/45">
+          <p className="mt-2 text-xs text-deep-brown/50">
             <time dateTime={toDateTimeAttribute(cancelledAt)}>
               {formatDate(cancelledAt)}
             </time>
@@ -59,7 +59,7 @@ export function OrderTimeline({ status, history, className }: OrderTimelineProps
                 aria-hidden
                 className={cn(
                   "absolute left-[7px] top-4 h-full w-px",
-                  index < currentIndex ? "bg-gold" : "bg-charcoal/12",
+                  index < currentIndex ? "bg-terracotta" : "bg-deep-brown/12",
                 )}
               />
             ) : null}
@@ -68,8 +68,8 @@ export function OrderTimeline({ status, history, className }: OrderTimelineProps
               aria-hidden
               className={cn(
                 "relative mt-1 size-[15px] shrink-0 rounded-full border-2",
-                done ? "border-gold bg-gold" : "border-charcoal/20 bg-ivory",
-                current && "ring-4 ring-gold/20",
+                done ? "border-terracotta bg-terracotta" : "border-deep-brown/20 bg-off-white",
+                current && "ring-4 ring-terracotta/20",
               )}
             />
 
@@ -77,7 +77,7 @@ export function OrderTimeline({ status, history, className }: OrderTimelineProps
               <p
                 className={cn(
                   "text-[11px] uppercase tracking-[0.24em]",
-                  done ? "text-charcoal" : "text-charcoal/35",
+                  done ? "font-medium text-forest" : "text-deep-brown/40",
                 )}
               >
                 {ORDER_STATUS_LABELS[stage]}
@@ -86,14 +86,14 @@ export function OrderTimeline({ status, history, className }: OrderTimelineProps
               <p
                 className={cn(
                   "mt-2 max-w-md text-sm leading-relaxed",
-                  done ? "text-charcoal/65" : "text-charcoal/35",
+                  done ? "text-deep-brown/75" : "text-deep-brown/40",
                 )}
               >
                 {ORDER_STATUS_DESCRIPTIONS[stage]}
               </p>
 
               {at ? (
-                <p className="mt-2 text-xs text-charcoal/45">
+                <p className="mt-2 text-xs text-deep-brown/50">
                   <time dateTime={toDateTimeAttribute(at)}>{formatDate(at)}</time>
                 </p>
               ) : null}

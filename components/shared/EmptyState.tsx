@@ -22,9 +22,9 @@ type EmptyStateProps = {
  */
 export function EmptyState({ title, description, action, className }: EmptyStateProps) {
   return (
-    <div className={cn("max-w-md border border-charcoal/10 p-8 sm:p-10", className)}>
-      <p className="font-display text-2xl leading-snug text-charcoal">{title}</p>
-      <p className="mt-3 text-sm leading-relaxed text-charcoal/60">{description}</p>
+    <div className={cn("max-w-md border border-deep-brown/12 bg-off-white/60 p-8 sm:p-10", className)}>
+      <p className="font-display text-2xl leading-snug text-forest">{title}</p>
+      <p className="mt-3 text-sm leading-relaxed text-deep-brown/75">{description}</p>
 
       {action ? (
         <Link

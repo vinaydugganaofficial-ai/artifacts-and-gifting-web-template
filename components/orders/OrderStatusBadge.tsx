@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 
 /** Each status gets its own treatment so the state is readable at a glance. */
 const toneFor: Record<OrderStatus, string> = {
-  placed: "bg-charcoal/8 text-charcoal/70",
-  confirmed: "bg-gold/15 text-gold-muted",
-  in_production: "bg-gold/20 text-gold-muted",
-  shipped: "bg-charcoal text-ivory",
-  delivered: "bg-success/15 text-success",
+  placed: "bg-sand text-deep-brown",
+  confirmed: "bg-terracotta/15 text-terracotta",
+  in_production: "bg-terracotta/20 text-terracotta",
+  shipped: "bg-forest text-off-white",
+  delivered: "bg-forest/15 text-forest",
   cancelled: "bg-danger/12 text-danger",
 };
 

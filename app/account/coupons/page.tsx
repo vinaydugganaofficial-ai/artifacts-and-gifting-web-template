@@ -20,16 +20,16 @@ export default async function AccountCouponsPage() {
   return (
     <div>
       <header>
-        <p className="text-[11px] uppercase tracking-[0.38em] text-gold-muted">Offers</p>
-        <h1 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">
+        <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-terracotta">Offers & Courtesies</p>
+        <h1 className="mt-4 font-display text-4xl leading-tight text-forest sm:text-5xl">
           Coupons and offers
         </h1>
-        <span className="mt-6 block h-px w-16 bg-gold" aria-hidden />
-        <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-charcoal/70">
+        <span className="mt-6 block h-px w-16 bg-terracotta" aria-hidden />
+        <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-deep-brown/80">
           Apply a code in the bag or at checkout.{" "}
           {memberOffers.length > 0
-            ? `${memberOffers.length === 1 ? "One offer is" : `${memberOffers.length} offers are`} reserved for members — that includes you.`
-            : "We add new offers here first."}
+            ? `${memberOffers.length === 1 ? "One courtesy is" : `${memberOffers.length} courtesies are`} reserved for registered patrons — that includes you.`
+            : "We add new seasonal curations and member privileges here first."}
         </p>
       </header>
 
@@ -37,8 +37,8 @@ export default async function AccountCouponsPage() {
         <CouponList offers={offers} />
       </div>
 
-      <p className="mt-12 border-t border-charcoal/10 pt-8 text-xs leading-relaxed text-charcoal/50">
-        One coupon per order. Offers cannot be combined, and the discount is applied to
+      <p className="mt-12 border-t border-deep-brown/15 pt-8 text-xs leading-relaxed text-deep-brown/60">
+        One courtesy coupon per order. Offers cannot be combined, and the discount is applied to
         the subtotal before delivery.
       </p>
     </div>

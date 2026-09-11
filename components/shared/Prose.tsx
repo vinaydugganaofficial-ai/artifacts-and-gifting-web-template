@@ -22,9 +22,9 @@ export function Prose({ paragraphs, className, lede = false }: ProseProps) {
         <p
           key={index}
           className={cn(
-            "leading-relaxed text-charcoal/75",
+            "leading-relaxed text-deep-brown/80",
             lede && index === 0
-              ? "text-[19px] leading-[1.6] text-charcoal/85"
+              ? "text-[19px] leading-[1.6] text-deep-brown"
               : "text-[16px]",
           )}
         >

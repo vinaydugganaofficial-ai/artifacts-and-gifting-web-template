@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 const TOAST_DURATION_MS = 3200;
 
 const toneClass: Record<ToastTone, string> = {
-  default: "border-gold/40 bg-charcoal text-ivory",
-  success: "border-success/50 bg-charcoal text-ivory",
-  error: "border-danger/60 bg-danger text-ivory",
+  default: "border-sand/40 bg-forest text-off-white shadow-lg",
+  success: "border-forestLight bg-forest text-off-white shadow-lg",
+  error: "border-terracottaDark bg-terracotta text-off-white shadow-lg",
 };
 
 export function Toast() {

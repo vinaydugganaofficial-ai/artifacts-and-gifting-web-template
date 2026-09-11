@@ -31,21 +31,21 @@ export function StatCard({
   return (
     <div
       className={cn(
-        "flex flex-col justify-between border border-charcoal/10 p-6",
+        "flex flex-col justify-between border border-deep-brown/15 bg-sand/20 p-6",
         className,
       )}
     >
       <div>
-        <p className="text-[10px] uppercase tracking-[0.24em] text-charcoal/45">
+        <p className="text-[10px] uppercase tracking-[0.24em] text-terracotta font-medium">
           {label}
         </p>
-        <p className="mt-4 font-display text-4xl tabular-nums leading-none">{value}</p>
-        <p className="mt-2 text-sm text-charcoal/55">{caption}</p>
+        <p className="mt-4 font-display text-4xl tabular-nums leading-none text-forest">{value}</p>
+        <p className="mt-2 text-sm text-deep-brown/65">{caption}</p>
       </div>
 
       <Link
         href={href}
-        className="mt-6 text-[10px] uppercase tracking-[0.22em] text-charcoal/60 transition-colors hover:text-gold"
+        className="mt-6 text-[10px] uppercase tracking-[0.22em] text-deep-brown/70 font-medium transition-colors hover:text-terracotta"
       >
         {action}
       </Link>

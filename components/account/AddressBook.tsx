@@ -129,7 +129,7 @@ export function AddressBook({
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p className="text-[11px] uppercase tracking-[0.22em] text-charcoal/45">
+        <p className="text-[11px] uppercase tracking-[0.22em] text-terracotta font-medium">
           {addresses.length} of {maxAddresses} saved
         </p>
 
@@ -146,7 +146,7 @@ export function AddressBook({
       </div>
 
       {atLimit && !formOpen ? (
-        <p className="mt-3 text-sm text-charcoal/55">
+        <p className="mt-3 text-sm text-deep-brown/65">
           You have saved the maximum of {maxAddresses} addresses. Remove one to add
           another.
         </p>
@@ -178,35 +178,35 @@ export function AddressBook({
               key={address.id}
               className={cn(
                 "flex flex-col justify-between border p-6",
-                address.isDefault ? "border-gold/50 bg-gold/5" : "border-charcoal/10",
+                address.isDefault ? "border-forest bg-sand/30" : "border-deep-brown/15 bg-sand/15",
               )}
             >
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <p className="font-display text-xl">{address.label}</p>
-                  {address.isDefault ? <Badge tone="gold">Default</Badge> : null}
+                  <p className="font-display text-xl text-forest">{address.label}</p>
+                  {address.isDefault ? <Badge tone="terracotta">Default</Badge> : null}
                 </div>
 
-                <address className="mt-4 text-sm not-italic leading-relaxed text-charcoal/70">
-                  <span className="block text-charcoal">{address.recipient}</span>
+                <address className="mt-4 text-sm not-italic leading-relaxed text-deep-brown/75">
+                  <span className="block font-medium text-deep-brown">{address.recipient}</span>
                   <span className="block">{address.line1}</span>
                   {address.line2 ? <span className="block">{address.line2}</span> : null}
                   <span className="block">
                     {address.city}, {address.state} {address.postalCode}
                   </span>
                   <span className="block">{address.country}</span>
-                  <span className="mt-2 block text-charcoal/50">{address.phone}</span>
+                  <span className="mt-2 block text-deep-brown/60">{address.phone}</span>
                 </address>
               </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-charcoal/10 pt-4 text-[10px] uppercase tracking-[0.2em]">
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-deep-brown/15 pt-4 text-[10px] uppercase tracking-[0.2em]">
                 <button
                   type="button"
                   onClick={() => {
                     setAdding(false);
                     setEditing(address);
                   }}
-                  className="text-charcoal/65 transition-colors hover:text-gold"
+                  className="font-medium text-deep-brown/70 transition-colors hover:text-terracotta"
                 >
                   Edit
                 </button>
@@ -216,7 +216,7 @@ export function AddressBook({
                     type="button"
                     onClick={() => onMakeDefault(address)}
                     disabled={busyId === address.id}
-                    className="text-charcoal/65 transition-colors hover:text-gold disabled:opacity-50"
+                    className="font-medium text-deep-brown/70 transition-colors hover:text-terracotta disabled:opacity-50"
                   >
                     Make default
                   </button>
@@ -226,7 +226,7 @@ export function AddressBook({
                   type="button"
                   onClick={() => onDelete(address)}
                   disabled={busyId === address.id}
-                  className="text-charcoal/50 transition-colors hover:text-danger disabled:opacity-50"
+                  className="text-deep-brown/60 transition-colors hover:text-danger disabled:opacity-50"
                 >
                   {busyId === address.id ? "Working…" : "Remove"}
                 </button>
@@ -293,9 +293,9 @@ function AddressForm({ address, defaultCountry, onCancel, onSaved }: AddressForm
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="mt-8 border border-charcoal/15 p-6 sm:p-8"
+      className="mt-8 border border-deep-brown/15 bg-sand/20 p-6 sm:p-8"
     >
-      <h3 className="font-display text-2xl">
+      <h3 className="font-display text-2xl text-forest">
         {address ? "Edit address" : "New address"}
       </h3>
 
@@ -307,7 +307,7 @@ function AddressForm({ address, defaultCountry, onCancel, onSaved }: AddressForm
         >
           <Input
             id="addr-label"
-            placeholder="Home"
+            placeholder="Home / Ancestral Residence"
             invalid={Boolean(errors.label)}
             {...register("label")}
           />
@@ -405,10 +405,10 @@ function AddressForm({ address, defaultCountry, onCancel, onSaved }: AddressForm
         </Field>
       </div>
 
-      <label className="mt-6 flex cursor-pointer items-center gap-3 text-sm text-charcoal/70">
+      <label className="mt-6 flex cursor-pointer items-center gap-3 text-sm text-deep-brown/80">
         <input
           type="checkbox"
-          className="size-4 accent-[var(--color-gold)]"
+          className="size-4 accent-terracotta"
           {...register("isDefault")}
         />
         Use this as my default delivery address

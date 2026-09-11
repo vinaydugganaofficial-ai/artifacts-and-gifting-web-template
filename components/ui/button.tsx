@@ -4,18 +4,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.22em] transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-gold",
+  "inline-flex items-center justify-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.22em] transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-terracotta",
   {
     variants: {
       variant: {
-        primary: "bg-charcoal text-ivory hover:bg-charcoal-soft",
-        ivory: "bg-ivory text-charcoal hover:bg-ivory-deep",
+        primary: "bg-forest text-off-white hover:bg-forest-light shadow-sm",
+        forest: "bg-forest text-off-white hover:bg-forest-light shadow-sm",
+        terracotta: "bg-terracotta text-off-white hover:bg-terracotta-dark shadow-sm",
+        sand: "bg-sand text-deep-brown hover:bg-sand-muted",
+        ivory: "bg-off-white text-deep-brown hover:bg-sand border border-deep-brown/10",
         outline:
-          "border border-charcoal/25 bg-transparent text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory",
+          "border border-deep-brown/25 bg-transparent text-deep-brown hover:border-forest hover:bg-forest hover:text-off-white",
         outlineIvory:
-          "border border-ivory/35 bg-transparent text-ivory hover:border-ivory hover:bg-ivory hover:text-charcoal",
-        ghost: "bg-transparent text-charcoal hover:text-gold",
-        gold: "bg-transparent text-gold hover:text-gold-soft",
+          "border border-sand/40 bg-transparent text-sand hover:border-sand hover:bg-sand hover:text-deep-brown",
+        ghost: "bg-transparent text-deep-brown hover:text-terracotta",
+        gold: "bg-transparent text-terracotta hover:text-terracotta-dark",
       },
       size: {
         default: "h-12 px-7",

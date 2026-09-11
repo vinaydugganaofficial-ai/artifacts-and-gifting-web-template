@@ -93,7 +93,7 @@ function createRepositories(): Repositories {
  * A database-backed implementation would not need this, since the state would
  * live in the database rather than in the process.
  */
-const REGISTRY = Symbol.for("aaranya.repositories");
+const REGISTRY = Symbol.for("viraasat.repositories");
 
 type Registry = typeof globalThis & {
   [REGISTRY]?: Repositories;

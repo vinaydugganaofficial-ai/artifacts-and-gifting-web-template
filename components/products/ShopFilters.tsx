@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 type ShopFiltersProps = {
   collections: readonly Collection[];
   collection: string;
+  occasion?: string;
+  budget?: string;
   sort: ProductSort;
   inStockOnly: boolean;
   /** Route the form submits to, e.g. `/shop`. */
@@ -18,16 +20,28 @@ type ShopFiltersProps = {
   resultCount: number;
 };
 
-/**
- * Catalog filters.
- *
- * A real `<form method="get">`: with JavaScript disabled it still submits and
- * filters, because the page reads its state from the URL on the server. The
- * client enhancement simply submits on change so no "Apply" press is needed.
- */
+const OCCASIONS = [
+  { value: "", label: "All Occasions" },
+  { value: "corporate", label: "Corporate Gifting" },
+  { value: "wedding", label: "Wedding & Favors" },
+  { value: "housewarming", label: "Housewarming (Griha Pravesh)" },
+  { value: "festivals", label: "Festive & Ceremonial" },
+];
+
+const BUDGETS = [
+  { value: "", label: "All Budgets" },
+  { value: "under-500", label: "Under ₹500" },
+  { value: "500-1000", label: "₹500 – ₹1,000" },
+  { value: "1000-2500", label: "₹1,000 – ₹2,500" },
+  { value: "2500-5000", label: "₹2,500 – ₹5,000" },
+  { value: "premium", label: "Premium (₹5,000+)" },
+];
+
 export function ShopFilters({
   collections,
   collection,
+  occasion = "",
+  budget = "",
   sort,
   inStockOnly,
   action,
@@ -44,9 +58,7 @@ export function ShopFilters({
       if (typeof value === "string" && value !== "") params.set(key, value);
     }
 
-    // Any filter change invalidates the current page number.
     params.delete("page");
-
     const query = params.toString();
     router.push(query ? `${action}?${query}` : action, { scroll: false });
   }
@@ -61,13 +73,13 @@ export function ShopFilters({
         event.preventDefault();
         submitNow(event.currentTarget);
       }}
-      className="mt-12 flex flex-col gap-6 border-y border-charcoal/10 py-6 lg:flex-row lg:items-end lg:justify-between"
+      className="mt-12 flex flex-col gap-6 border-y border-deep-brown/15 py-6 lg:flex-row lg:items-end lg:justify-between"
     >
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-end gap-5 sm:gap-6">
         <div className="flex flex-col gap-2">
           <label
             htmlFor="filter-collection"
-            className="text-[10px] uppercase tracking-[0.22em] text-charcoal/50"
+            className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/60"
           >
             Collection
           </label>
@@ -75,7 +87,7 @@ export function ShopFilters({
             id="filter-collection"
             name="collection"
             defaultValue={collection}
-            className="min-w-52"
+            className="min-w-44"
           >
             <option value="">All collections</option>
             {collections.map((item) => (
@@ -88,12 +100,54 @@ export function ShopFilters({
 
         <div className="flex flex-col gap-2">
           <label
+            htmlFor="filter-occasion"
+            className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/60"
+          >
+            Occasion
+          </label>
+          <Select
+            id="filter-occasion"
+            name="occasion"
+            defaultValue={occasion}
+            className="min-w-44"
+          >
+            {OCCASIONS.map((occ) => (
+              <option key={occ.value} value={occ.value}>
+                {occ.label}
+              </option>
+            ))}
+          </Select>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="filter-budget"
+            className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/60"
+          >
+            Budget
+          </label>
+          <Select
+            id="filter-budget"
+            name="budget"
+            defaultValue={budget}
+            className="min-w-44"
+          >
+            {BUDGETS.map((b) => (
+              <option key={b.value} value={b.value}>
+                {b.label}
+              </option>
+            ))}
+          </Select>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label
             htmlFor="filter-sort"
-            className="text-[10px] uppercase tracking-[0.22em] text-charcoal/50"
+            className="text-[10px] uppercase tracking-[0.22em] text-deep-brown/60"
           >
             Sort
           </label>
-          <Select id="filter-sort" name="sort" defaultValue={sort} className="min-w-52">
+          <Select id="filter-sort" name="sort" defaultValue={sort} className="min-w-36">
             {PRODUCT_SORTS.map((value) => (
               <option key={value} value={value}>
                 {PRODUCT_SORT_LABELS[value]}
@@ -102,13 +156,13 @@ export function ShopFilters({
           </Select>
         </div>
 
-        <label className="flex cursor-pointer items-center gap-3 pb-3 text-[11px] uppercase tracking-[0.2em] text-charcoal/70">
+        <label className="flex cursor-pointer items-center gap-3 pb-3 text-[11px] uppercase tracking-[0.2em] text-deep-brown/80">
           <input
             type="checkbox"
             name="inStockOnly"
             value="true"
             defaultChecked={inStockOnly}
-            className="size-4 accent-[var(--color-gold)]"
+            className="size-4 accent-[var(--color-terracotta)]"
           />
           Available only
         </label>
@@ -117,7 +171,7 @@ export function ShopFilters({
       <div className="flex items-center gap-6">
         <p
           aria-live="polite"
-          className="text-[11px] uppercase tracking-[0.22em] text-charcoal/50"
+          className="text-[11px] uppercase tracking-[0.22em] text-terracotta font-medium"
         >
           {resultCount === 1 ? "1 piece" : `${resultCount} pieces`}
         </p>

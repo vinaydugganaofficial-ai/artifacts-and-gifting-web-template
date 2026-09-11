@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Track an order",
   description:
-    "Follow an Aaranya order from the workshop to your door using your order number.",
+    "Follow a Viraasat order from the artisan workshop to your door using your order number.",
   alternates: { canonical: "/track-order" },
 };
 

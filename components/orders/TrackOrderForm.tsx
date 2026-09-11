@@ -93,9 +93,9 @@ export function TrackOrderForm({ defaultPhone = "" }: { defaultPhone?: string })
           {isSubmitting ? "Looking…" : "Track order"}
         </Button>
 
-        <p className="text-xs leading-relaxed text-charcoal/50">
+        <p className="text-xs leading-relaxed text-deep-brown/60">
           Have an account?{" "}
-          <Link href="/account/orders" className="link-underline text-charcoal/70">
+          <Link href="/account/orders" className="link-underline font-medium text-terracotta hover:text-forest">
             Your orders are listed there
           </Link>{" "}
           without needing a number.
@@ -104,13 +104,13 @@ export function TrackOrderForm({ defaultPhone = "" }: { defaultPhone?: string })
 
       <div aria-live="polite">
         {order ? (
-          <article className="border border-charcoal/10 p-6 sm:p-8">
+          <article className="border border-deep-brown/15 bg-sand/20 p-6 sm:p-8">
             <div className="flex flex-wrap items-center gap-4">
-              <h2 className="font-display text-3xl">{order.orderNumber}</h2>
+              <h2 className="font-display text-3xl text-forest">{order.orderNumber}</h2>
               <OrderStatusBadge status={order.status} />
             </div>
 
-            <p className="mt-4 text-sm text-charcoal/60">
+            <p className="mt-4 text-sm text-deep-brown/70">
               Placed{" "}
               <time dateTime={toDateTimeAttribute(order.placedAt)}>
                 {formatDate(order.placedAt)}
@@ -121,12 +121,12 @@ export function TrackOrderForm({ defaultPhone = "" }: { defaultPhone?: string })
               {formatPrice(order.total)}
             </p>
 
-            <p className="mt-1 text-sm text-charcoal/60">
+            <p className="mt-1 text-sm text-deep-brown/70">
               For {order.recipient} in {order.city}
             </p>
 
             {order.estimatedDelivery && order.status !== "delivered" ? (
-              <p className="mt-4 border-t border-charcoal/10 pt-4 text-sm text-charcoal/70">
+              <p className="mt-4 border-t border-deep-brown/15 pt-4 text-sm text-deep-brown/80">
                 Estimated delivery{" "}
                 <time dateTime={toDateTimeAttribute(order.estimatedDelivery)}>
                   {formatDate(order.estimatedDelivery)}
@@ -134,27 +134,27 @@ export function TrackOrderForm({ defaultPhone = "" }: { defaultPhone?: string })
                 {order.trackingNumber ? (
                   <>
                     {" · Reference "}
-                    <span className="text-charcoal">{order.trackingNumber}</span>
+                    <span className="font-medium text-forest">{order.trackingNumber}</span>
                   </>
                 ) : null}
               </p>
             ) : null}
 
-            <ul className="mt-6 flex flex-wrap gap-4 border-y border-charcoal/10 py-5">
+            <ul className="mt-6 flex flex-wrap gap-4 border-y border-deep-brown/15 py-5">
               {order.lines.map((line) => (
                 <li key={line.slug} className="flex items-center gap-3">
-                  <div className="relative size-14 shrink-0 overflow-hidden bg-charcoal">
+                  <div className="relative size-14 shrink-0 overflow-hidden bg-[#EAE0CF] p-1">
                     <Image
                       src={line.image}
                       alt={line.imageAlt}
                       fill
                       sizes="56px"
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
-                  <span className="text-sm text-charcoal/70">
+                  <span className="text-sm text-deep-brown/80">
                     {line.name}
-                    <span className="text-charcoal/40"> × {line.quantity}</span>
+                    <span className="text-deep-brown/50"> × {line.quantity}</span>
                   </span>
                 </li>
               ))}

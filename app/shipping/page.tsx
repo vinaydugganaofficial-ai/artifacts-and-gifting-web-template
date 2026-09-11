@@ -5,9 +5,9 @@ import { getPolicy } from "@/lib/services/content.service";
 import { PolicyPage } from "@/components/shared/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Shipping",
+  title: "Shipping & Delivery",
   description:
-    "How pieces travel from the Aaranya atelier — dispatch times, transit windows, duties and packaging.",
+    "How pieces travel from the Viraasat atelier — dispatch times, bespoke gift packaging, transit windows, and white-glove courier handling.",
   alternates: { canonical: "/shipping" },
 };
 

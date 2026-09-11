@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Create an account",
-  description: "Create an Aaranya account with your mobile number.",
+  description: "Create a Viraasat account with your mobile number to manage your heritage curations and bespoke gifting orders.",
   robots: { index: false, follow: true },
 };
 
@@ -33,12 +33,12 @@ export default async function SignUpPage({
 
   return (
     <AuthShell
-      eyebrow="The Atelier"
-      title="Create an account."
-      description="Your name and a mobile number is all it takes. We will send a one-time code to confirm the number is yours."
+      eyebrow="The Concierge"
+      title="Begin your journey with Viraasat."
+      description="Save meaningful gifting curations, track handmade artifact commissions, and access our dedicated gifting concierge."
       image={{
-        src: "/images/gallery/packaging.jpg",
-        alt: "A brass piece wrapped in cloth inside an open wooden box",
+        src: "/images/corporate-gifting.jpg",
+        alt: "Artisanal heritage gift box with brass seal and handcrafted token",
       }}
       footer={{
         prompt: "Already have an account?",

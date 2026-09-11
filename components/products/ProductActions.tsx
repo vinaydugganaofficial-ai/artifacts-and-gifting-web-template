@@ -51,16 +51,16 @@ export function ProductActions({ product }: { product: Product }) {
           }
           aria-pressed={wished}
           onClick={() => toggleWishlist(product.id)}
-          className="grid size-12 place-items-center border border-charcoal/20 transition-colors hover:border-gold"
+          className="grid size-12 place-items-center border border-deep-brown/20 bg-off-white/80 transition-colors hover:border-terracotta"
         >
-          <Heart className={cn("size-4", wished && "fill-gold text-gold")} />
+          <Heart className={cn("size-4 text-deep-brown/60", wished && "fill-terracotta text-terracotta")} />
         </button>
       </div>
 
       {!product.inStock ? (
-        <p className="mt-4 text-sm text-charcoal/60">
-          This piece is currently with a collector. Write to the atelier and we will tell
-          you when the next casting is finished.
+        <p className="mt-4 text-sm text-deep-brown/70">
+          This piece is currently with a collector. Write to our concierge and we will notify
+          you when the next workshop casting is ready.
         </p>
       ) : null}
     </div>

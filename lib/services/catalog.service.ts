@@ -115,6 +115,26 @@ export async function listProducts(
     items = items.filter((product) => product.collections.includes(slug));
   }
 
+  if (query.occasion) {
+    const occ = normalize(query.occasion);
+    items = items.filter((product) =>
+      product.giftingOccasions?.some((o) => normalize(o).includes(occ)) ||
+      normalize(product.description).includes(occ)
+    );
+  }
+
+  if (query.budget) {
+    const b = query.budget.toLowerCase();
+    items = items.filter((product) => {
+      if (b === "under-500") return product.price < 500;
+      if (b === "500-1000") return product.price >= 500 && product.price <= 1000;
+      if (b === "1000-2500") return product.price >= 1000 && product.price <= 2500;
+      if (b === "2500-5000") return product.price >= 2500 && product.price <= 5000;
+      if (b === "premium" || b === "5000+") return product.price >= 5000;
+      return true;
+    });
+  }
+
   if (query.inStockOnly) {
     items = items.filter((product) => product.inStock);
   }

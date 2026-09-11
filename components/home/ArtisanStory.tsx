@@ -39,9 +39,9 @@ export function ArtisanStory({
   action,
 }: ArtisanStoryProps) {
   return (
-    <section className="bg-ivory px-5 py-24 md:px-8 md:py-32 lg:px-12">
+    <section className="bg-sand/30 px-5 py-24 md:px-8 md:py-32 lg:px-12">
       <div className="mx-auto grid max-w-[1440px] items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <div className="relative aspect-[3/4] overflow-hidden bg-charcoal">
+        <div className="relative aspect-[3/4] overflow-hidden bg-sand border border-deep-brown/10">
           <Image
             src={image.src}
             alt={image.alt}
@@ -54,10 +54,10 @@ export function ArtisanStory({
         <div>
           <SectionHeading eyebrow={eyebrow} title={title} />
 
-          <p className="mt-8 max-w-md text-[16px] leading-relaxed text-charcoal/75">
+          <p className="mt-8 max-w-md text-[16px] leading-relaxed text-deep-brown/80">
             {lede}
           </p>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-charcoal/55">
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-deep-brown/65">
             {support}
           </p>
 
@@ -65,7 +65,7 @@ export function ArtisanStory({
 
           <Link
             href={action.href}
-            className={cn(buttonVariants({ variant: "outline" }), "mt-10")}
+            className={cn(buttonVariants({ variant: "sand" }), "mt-10")}
           >
             {action.label}
           </Link>
@@ -82,16 +82,16 @@ function StatsRow({ stats }: { stats: readonly ArtisanStat[] }) {
   return (
     <ul
       ref={ref}
-      className="mt-10 grid grid-cols-3 gap-4 border-y border-charcoal/10 py-8"
+      className="mt-10 grid grid-cols-3 gap-4 border-y border-deep-brown/15 py-8"
     >
       {stats.map((stat) => (
         <li key={stat.id}>
           {typeof stat.value === "number" ? (
             <CountUp inView={inView} value={stat.value} suffix={stat.suffix ?? ""} />
           ) : (
-            <p className="font-display text-3xl text-charcoal sm:text-4xl">{stat.text}</p>
+            <p className="font-display text-3xl text-forest sm:text-4xl">{stat.text}</p>
           )}
-          <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-charcoal/50">
+          <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-deep-brown/60">
             {stat.label}
           </p>
         </li>
@@ -133,7 +133,7 @@ function CountUp({
   const shown = reduce ? value : current;
 
   return (
-    <p className="font-display text-3xl tabular-nums text-charcoal sm:text-4xl">
+    <p className="font-display text-3xl tabular-nums text-forest sm:text-4xl">
       {shown}
       {suffix}
     </p>

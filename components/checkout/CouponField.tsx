@@ -59,14 +59,14 @@ export function CouponField({
 
   if (applied) {
     return (
-      <div className="border border-success/40 bg-success/5 p-5">
+      <div className="border border-forest/30 bg-forest/5 p-5">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-success">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-forest font-medium">
               Applied
             </p>
-            <p className="mt-2 text-sm text-charcoal">{applied.title}</p>
-            <p className="mt-1 text-xs text-charcoal/55">
+            <p className="mt-2 text-sm text-deep-brown font-medium">{applied.title}</p>
+            <p className="mt-1 text-xs text-deep-brown/65">
               {applied.code}
               {applied.discount > 0 ? ` · saves ${formatPrice(applied.discount)}` : ""}
               {applied.freeShipping ? " · delivery included" : ""}
@@ -77,7 +77,7 @@ export function CouponField({
             type="button"
             onClick={onRemove}
             aria-label={`Remove coupon ${applied.code}`}
-            className="grid size-8 shrink-0 place-items-center text-charcoal/50 transition-colors hover:text-danger"
+            className="grid size-8 shrink-0 place-items-center text-deep-brown/50 transition-colors hover:text-danger"
           >
             <X className="size-4" aria-hidden />
           </button>
@@ -89,10 +89,10 @@ export function CouponField({
   const message = localError ?? errorMessage;
 
   return (
-    <div className="border border-charcoal/10 p-5">
+    <div className="border border-deep-brown/15 bg-sand/20 p-5">
       <label
         htmlFor="coupon-code"
-        className="text-[11px] uppercase tracking-[0.24em] text-charcoal/50"
+        className="text-[11px] uppercase tracking-[0.24em] text-deep-brown/60"
       >
         Have a coupon?
       </label>
@@ -125,11 +125,11 @@ export function CouponField({
         </p>
       ) : null}
 
-      <p className="mt-4 text-xs leading-relaxed text-charcoal/50">
+      <p className="mt-4 text-xs leading-relaxed text-deep-brown/60">
         {signedIn ? (
           <>
             Your offers are on the{" "}
-            <Link href="/account/coupons" className="link-underline text-charcoal/70">
+            <Link href="/account/coupons" className="link-underline font-medium text-forest hover:text-terracotta">
               coupons page
             </Link>
             .
@@ -138,7 +138,7 @@ export function CouponField({
           <>
             <Link
               href="/sign-in?next=%2Fcheckout"
-              className="link-underline text-charcoal/70"
+              className="link-underline font-medium text-forest hover:text-terracotta"
             >
               Sign in
             </Link>{" "}

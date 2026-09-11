@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Checkout",
-  description: "Complete your order with the Aaranya atelier.",
+  description: "Complete your order with the Viraasat gifting house and atelier.",
   robots: { index: false, follow: false },
 };
 
@@ -35,7 +35,7 @@ export default async function CheckoutPage() {
           className="mt-8"
           eyebrow="Checkout"
           title="Complete your order."
-          description="Four short steps. Nothing is charged here — the atelier confirms each piece by hand, then sends a payment link or invoice."
+          description="Four short steps. Nothing is charged here — our concierge confirms availability and bespoke packaging, then sends a secure payment link or invoice."
         />
 
         <CheckoutClient

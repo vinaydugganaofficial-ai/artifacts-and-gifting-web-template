@@ -19,8 +19,8 @@ type CouponListProps = {
 export function CouponList({ offers, subtotal }: CouponListProps) {
   if (offers.length === 0) {
     return (
-      <p className="text-sm text-charcoal/55">
-        No offers are running at the moment. New ones appear here first.
+      <p className="text-sm text-deep-brown/65">
+        No offers are running at the moment. New curations and festive courtesies appear here first.
       </p>
     );
   }
@@ -56,30 +56,30 @@ function CouponCard({ offer, subtotal }: { offer: CouponOffer; subtotal?: number
     <article
       className={cn(
         "flex h-full flex-col justify-between border p-6",
-        offer.eligible ? "border-gold/50 bg-gold/5" : "border-charcoal/10",
+        offer.eligible ? "border-terracotta/50 bg-sand/40" : "border-deep-brown/15 bg-sand/15",
       )}
     >
       <div>
         <div className="flex flex-wrap items-start justify-between gap-3">
-          <p className="font-display text-xl leading-snug">{offer.title}</p>
-          {offer.membersOnly ? <Badge tone="gold">Members</Badge> : null}
+          <p className="font-display text-xl leading-snug text-forest">{offer.title}</p>
+          {offer.membersOnly ? <Badge tone="terracotta">Patron Only</Badge> : null}
         </div>
 
-        <p className="mt-3 text-sm leading-relaxed text-charcoal/65">
+        <p className="mt-3 text-sm leading-relaxed text-deep-brown/75">
           {offer.description}
         </p>
 
-        <dl className="mt-5 space-y-1.5 text-xs text-charcoal/55">
+        <dl className="mt-5 space-y-1.5 text-xs text-deep-brown/65">
           {offer.minSubtotal > 0 ? (
             <div className="flex gap-2">
               <dt>Minimum</dt>
-              <dd className="text-charcoal/75">{formatPrice(offer.minSubtotal)}</dd>
+              <dd className="font-medium text-deep-brown/85">{formatPrice(offer.minSubtotal)}</dd>
             </div>
           ) : null}
 
           <div className="flex gap-2">
-            <dt>Expires</dt>
-            <dd className="text-charcoal/75">
+            <dt>Valid until</dt>
+            <dd className="font-medium text-deep-brown/85">
               <time dateTime={toDateTimeAttribute(offer.expiresAt)}>
                 {formatDate(offer.expiresAt)}
               </time>
@@ -88,8 +88,8 @@ function CouponCard({ offer, subtotal }: { offer: CouponOffer; subtotal?: number
 
           {offer.eligible && offer.projectedDiscount > 0 ? (
             <div className="flex gap-2">
-              <dt>On your bag</dt>
-              <dd className="text-success">
+              <dt>On your selection</dt>
+              <dd className="font-medium text-forest">
                 saves {formatPrice(offer.projectedDiscount)}
               </dd>
             </div>
@@ -97,24 +97,24 @@ function CouponCard({ offer, subtotal }: { offer: CouponOffer; subtotal?: number
         </dl>
 
         {!offer.eligible && offer.reason ? (
-          <p className="mt-4 text-xs leading-relaxed text-charcoal/50">{offer.reason}</p>
+          <p className="mt-4 text-xs leading-relaxed text-deep-brown/55">{offer.reason}</p>
         ) : null}
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-charcoal/10 pt-5">
-        <code className="border border-dashed border-charcoal/25 px-3 py-1.5 text-[11px] uppercase tracking-[0.2em]">
+      <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-deep-brown/15 pt-5">
+        <code className="border border-dashed border-deep-brown/30 bg-off-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.2em] text-forest">
           {offer.code}
         </code>
 
         <button
           type="button"
           onClick={onCopy}
-          className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-charcoal/60 transition-colors hover:text-gold"
+          className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-deep-brown/70 transition-colors hover:text-terracotta"
         >
           {copied ? (
-            <Check className="size-3.5" aria-hidden />
+            <Check className="size-3.5 text-forest" aria-hidden />
           ) : (
-            <Copy className="size-3.5" aria-hidden />
+            <Copy className="size-3.5 text-terracotta" aria-hidden />
           )}
           {copied ? "Copied" : "Copy"}
         </button>
@@ -124,10 +124,10 @@ function CouponCard({ offer, subtotal }: { offer: CouponOffer; subtotal?: number
             href="/shop"
             className={cn(
               buttonVariants({ variant: "ghost", size: "sm" }),
-              "ml-auto px-0",
+              "ml-auto px-0 font-medium text-terracotta hover:text-forest",
             )}
           >
-            Shop
+            Explore
           </Link>
         ) : null}
       </div>

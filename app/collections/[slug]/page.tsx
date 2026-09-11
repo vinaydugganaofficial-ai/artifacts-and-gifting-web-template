@@ -61,7 +61,7 @@ export default async function CollectionDetailPage({ params }: Props) {
 
         <PageHeader
           className="mt-8"
-          eyebrow="Collection"
+          eyebrow="Curated Edit"
           title={collection.title}
           description={collection.description}
         />
@@ -73,8 +73,8 @@ export default async function CollectionDetailPage({ params }: Props) {
         ) : (
           <EmptyState
             className="mt-14"
-            title="This room is being hung."
-            description="No pieces are in this collection at the moment. New castings arrive from the atelier regularly."
+            title="Curation in progress."
+            description="Pieces for this edit are currently being cast and prepared in our partner workshops. Explore our full collection in the meantime."
             action={{ href: "/shop", label: "View all artifacts" }}
           />
         )}

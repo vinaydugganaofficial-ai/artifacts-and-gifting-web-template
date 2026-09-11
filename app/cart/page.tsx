@@ -16,9 +16,9 @@ export default function CartPage() {
     <section className={cn(tokens.gutter, tokens.pageTop, tokens.pageBottom)}>
       <div className={tokens.container}>
         <PageHeader
-          eyebrow="Bag"
+          eyebrow="Order Selection"
           title="Your Cart"
-          description="Nothing is charged here. The atelier confirms each piece by hand before an invoice is raised."
+          description="Review your selected heirlooms and gifting suites. Complimentary bespoke packaging and calligraphy gift cards are included with every order."
         />
         <CartView />
       </div>

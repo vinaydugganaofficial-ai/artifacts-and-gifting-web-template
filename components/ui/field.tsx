@@ -67,6 +67,9 @@ export function Select({ className, invalid, children, ...props }: SelectProps) 
   );
 }
 
+export { CustomSelect } from "./custom-select";
+export type { CustomSelectOption, CustomSelectProps } from "./custom-select";
+
 export type FieldProps = {
   /** Must match the control's `id` so the label is programmatically associated. */
   htmlFor: string;

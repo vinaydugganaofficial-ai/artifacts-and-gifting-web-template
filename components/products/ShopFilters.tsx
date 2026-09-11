@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 import type { Collection, ProductSort } from "@/types/product";
 import { PRODUCT_SORTS, PRODUCT_SORT_LABELS } from "@/types/product";
-import { Select } from "@/components/ui/field";
+import { CustomSelect } from "@/components/ui/custom-select";
 import { Button } from "@/components/ui/button";
 
 type ShopFiltersProps = {
@@ -63,6 +63,22 @@ export function ShopFilters({
     router.push(query ? `${action}?${query}` : action, { scroll: false });
   }
 
+  const collectionOptions = [
+    { value: "", label: "All collections" },
+    ...collections.map((item) => ({
+      value: item.slug,
+      label: item.title,
+      count: item.count,
+    })),
+  ];
+
+  const occasionOptions = OCCASIONS;
+  const budgetOptions = BUDGETS;
+  const sortOptions = PRODUCT_SORTS.map((value) => ({
+    value,
+    label: PRODUCT_SORT_LABELS[value],
+  }));
+
   return (
     <form
       ref={formRef}
@@ -83,19 +99,14 @@ export function ShopFilters({
           >
             Collection
           </label>
-          <Select
+          <CustomSelect
             id="filter-collection"
             name="collection"
             defaultValue={collection}
+            options={collectionOptions}
             className="min-w-44"
-          >
-            <option value="">All collections</option>
-            {collections.map((item) => (
-              <option key={item.slug} value={item.slug}>
-                {item.title} ({item.count})
-              </option>
-            ))}
-          </Select>
+            onValueChange={() => formRef.current && submitNow(formRef.current)}
+          />
         </div>
 
         <div className="flex flex-col gap-2">
@@ -105,18 +116,14 @@ export function ShopFilters({
           >
             Occasion
           </label>
-          <Select
+          <CustomSelect
             id="filter-occasion"
             name="occasion"
             defaultValue={occasion}
+            options={occasionOptions}
             className="min-w-44"
-          >
-            {OCCASIONS.map((occ) => (
-              <option key={occ.value} value={occ.value}>
-                {occ.label}
-              </option>
-            ))}
-          </Select>
+            onValueChange={() => formRef.current && submitNow(formRef.current)}
+          />
         </div>
 
         <div className="flex flex-col gap-2">
@@ -126,18 +133,14 @@ export function ShopFilters({
           >
             Budget
           </label>
-          <Select
+          <CustomSelect
             id="filter-budget"
             name="budget"
             defaultValue={budget}
+            options={budgetOptions}
             className="min-w-44"
-          >
-            {BUDGETS.map((b) => (
-              <option key={b.value} value={b.value}>
-                {b.label}
-              </option>
-            ))}
-          </Select>
+            onValueChange={() => formRef.current && submitNow(formRef.current)}
+          />
         </div>
 
         <div className="flex flex-col gap-2">
@@ -147,13 +150,14 @@ export function ShopFilters({
           >
             Sort
           </label>
-          <Select id="filter-sort" name="sort" defaultValue={sort} className="min-w-36">
-            {PRODUCT_SORTS.map((value) => (
-              <option key={value} value={value}>
-                {PRODUCT_SORT_LABELS[value]}
-              </option>
-            ))}
-          </Select>
+          <CustomSelect
+            id="filter-sort"
+            name="sort"
+            defaultValue={sort}
+            options={sortOptions}
+            className="min-w-40"
+            onValueChange={() => formRef.current && submitNow(formRef.current)}
+          />
         </div>
 
         <label className="flex cursor-pointer items-center gap-3 pb-3 text-[11px] uppercase tracking-[0.2em] text-deep-brown/80">

@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { contactSchema, CONTACT_SUBJECTS, type ContactInput } from "@/lib/api/schemas";
 import { submitContact } from "@/lib/api/client";
-import { Field, Input, Select, Textarea } from "@/components/ui/field";
+import { Field, Input, Textarea } from "@/components/ui/field";
+import { CustomSelect } from "@/components/ui/custom-select";
 import { Button } from "@/components/ui/button";
 
 /** Correspondence form. Validated with the same schema `/api/contact` enforces. */
@@ -16,6 +17,7 @@ export function ContactForm() {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<ContactInput>({
@@ -81,17 +83,22 @@ export function ContactForm() {
       </Field>
 
       <Field htmlFor="contact-subject" label="About" error={errors.subject?.message}>
-        <Select
-          id="contact-subject"
-          invalid={Boolean(errors.subject)}
-          {...register("subject")}
-        >
-          {CONTACT_SUBJECTS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </Select>
+        <Controller
+          name="subject"
+          control={control}
+          render={({ field }) => (
+            <CustomSelect
+              id="contact-subject"
+              value={field.value}
+              onChange={field.onChange}
+              options={CONTACT_SUBJECTS.map((option) => ({
+                value: option.value,
+                label: option.label,
+              }))}
+              invalid={Boolean(errors.subject)}
+            />
+          )}
+        />
       </Field>
 
       <Field

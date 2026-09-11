@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { CustomSelect } from "@/components/ui/custom-select";
 
 export type CountryCode = {
   code: string;
@@ -59,23 +60,22 @@ export function PhoneField({
           error ? "border-b-danger" : "border-b-deep-brown/25 focus-within:border-b-terracotta",
         )}
       >
-        <label htmlFor={`${id}-country`} className="sr-only">
-          Country code
-        </label>
-
-        <select
-          id={`${id}-country`}
-          value={countryCode}
-          disabled={disabled}
-          onChange={(event) => onCountryCodeChange(event.target.value)}
-          className="h-12 shrink-0 cursor-pointer border-0 bg-transparent pr-3 text-sm tabular-nums text-deep-brown/85 focus:outline-none"
-        >
-          {countryCodes.map((entry) => (
-            <option key={entry.code} value={entry.code}>
-              {entry.code}
-            </option>
-          ))}
-        </select>
+        <div className="w-20 shrink-0">
+          <CustomSelect
+            id={`${id}-country`}
+            value={countryCode}
+            disabled={disabled}
+            variant="compact"
+            options={countryCodes.map((entry) => ({
+              value: entry.code,
+              label: entry.code,
+              secondary: entry.label,
+            }))}
+            onChange={onCountryCodeChange}
+            aria-label="Country code"
+            menuClassName="w-52"
+          />
+        </div>
 
         <span aria-hidden className="my-3 w-px bg-deep-brown/15" />
 

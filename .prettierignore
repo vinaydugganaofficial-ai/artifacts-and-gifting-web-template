@@ -1,0 +1,11 @@
+.next/
+out/
+build/
+node_modules/
+package-lock.json
+*.tsbuildinfo
+public/
+
+# Project instruction files — owned by the repo, not by the formatter.
+AGENTS.md
+CLAUDE.md

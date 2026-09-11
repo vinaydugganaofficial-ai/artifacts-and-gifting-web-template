@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design tokens
+
+   MIRRORS `config/theme.ts`, which is the canonical source. Tailwind v4 needs
+   its tokens declared statically in CSS, so the values are repeated here.
+   `npm run check:theme` fails the build if the two ever disagree.
+   ========================================================================== */
+
+@theme inline {
+  /* Indian heritage material palette */
+  --color-sand: #e9ddc8;
+  --color-sand-muted: #decdb4;
+  --color-forest: #243a2d;
+  --color-forest-deep: #1b2c22;
+  --color-forest-light: #2f4a3b;
+  --color-terracotta: #a94f35;
+  --color-terracotta-dark: #8e3f29;
+  --color-saffron: #c58a3a;
+  --color-copper: #8b6748;
+  --color-off-white: #f8f5ee;
+  --color-deep-brown: #332a24;
+  --color-deep-brown-muted: #4d4037;
+  --color-danger: #a94f35;
+  --color-success: #243a2d;
+
+  /* fonts — bound by next/font in app/layout.tsx */
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-cormorant);
+}
+
+/*
+ * Stacking order. Consumed as `z-[var(--z-header)]`
+ */
+:root {
+  --z-grain: 3;
+  --z-header: 50;
+  --z-overlay: 60;
+  --z-dialog: 61;
+  --z-toast: 70;
+  --z-cursor: 80;
+  --z-skip-link: 90;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-deep-brown);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01" on;
+}
+
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-off-white);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--color-terracotta);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display), "Times New Roman", Georgia, serif;
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Texture and decoration
+   ========================================================================== */
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover,
+.link-underline[data-active="true"] {
+  background-size: 100% 1px;
+}
+
+/* ==========================================================================
+   Accordion
+   ========================================================================== */
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+[data-accordion-content][data-state="open"] {
+  animation: accordion-down 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-accordion-content][data-state="closed"] {
+  animation: accordion-up 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   Custom cursor (restrained subtle micro-dot)
+   ========================================================================== */
+
+@media (min-width: 768px) and (pointer: fine) and (hover: hover) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  .has-custom-cursor a:focus-visible,
+  .has-custom-cursor button:focus-visible {
+    cursor: auto !important;
+  }
+}

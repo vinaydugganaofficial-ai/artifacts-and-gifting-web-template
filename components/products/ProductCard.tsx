@@ -22,11 +22,11 @@ type ProductCardProps = {
 const DEFAULT_SIZES = "(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw";
 
 const materialBgClasses: Record<MaterialBackground, string> = {
-  stone: "bg-[#E4DED5]",
-  paper: "bg-[#F6F3EC]",
+  stone: "bg-[#EAE0CF]",
+  paper: "bg-[#EAE0CF]",
   sand: "bg-[#EAE0CF]",
-  wood: "bg-[#E8DFD0]",
-  textile: "bg-[#EBE4DA]",
+  wood: "bg-[#EAE0CF]",
+  textile: "bg-[#EAE0CF]",
 };
 
 export function ProductCard({
@@ -47,7 +47,7 @@ export function ProductCard({
   const [primary, secondary] = product.images;
   const hoverImage = secondary && secondary.src !== primary?.src ? secondary : null;
 
-  const bgClass = product.materialBg ? materialBgClasses[product.materialBg] : "bg-[#EDE5D8]";
+  const bgClass = product.materialBg ? materialBgClasses[product.materialBg] : "bg-[#EAE0CF]";
 
   function onAdd(e: React.MouseEvent) {
     e.preventDefault();

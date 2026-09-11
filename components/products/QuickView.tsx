@@ -137,7 +137,7 @@ export function QuickView() {
 
                 {!loading && product ? (
                   <div className="grid md:grid-cols-2">
-                    <div className="relative aspect-[4/5] bg-sand/40 p-6 md:aspect-auto md:min-h-[480px] flex items-center justify-center border-b md:border-b-0 md:border-r border-copper/15">
+                    <div className="relative aspect-[4/5] bg-[#EAE0CF] p-6 md:aspect-auto md:min-h-[480px] flex items-center justify-center border-b md:border-b-0 md:border-r border-copper/15">
                       <Image
                         src={product.images[0].src}
                         alt={product.images[0].alt}
